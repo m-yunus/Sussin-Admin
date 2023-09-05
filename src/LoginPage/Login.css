@@ -1,0 +1,153 @@
+.mainlogin{
+display: flex;
+flex-wrap: wrap;
+
+}
+.first-login{
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+    height:800px;
+    width: 50%;
+    flex-direction: column;
+    
+
+}
+.secnd-login{
+    display: flex;
+    background-color: rgb(232, 222, 222);
+    width: 50%;
+    height: 800px;
+
+}
+.login-title-logo{
+    display: flex;
+   
+    margin-top:1rem;
+  
+
+}
+.login-title{
+    
+    justify-content: center;
+    align-items: center;
+    color: #1b3363;
+    font-size: 3rem;
+   
+
+}
+
+.wlcm-title{
+    font-size: 7vw;
+    color: #1b3363;
+   
+}
+.google-button{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: white;
+    width: 26vw;
+    height: 6vw;
+    box-shadow: 2.04429px 7.155px 22.48714px -1.53321px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-size:2vw;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+.google-img{
+    width: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+    
+  
+
+}
+.or-title{
+    font-size: 1vw;
+    color: rgb(188, 182, 182);
+    margin-top: 2rem;
+}
+.input-section{
+margin-top: rem;
+
+}
+.email-section{
+  
+
+}
+.email-title{
+    font-size: 1vw;
+
+
+}
+.email-input{
+width: 90%;
+height: 4vw;
+border-color: black;
+border-width: 1px;
+}
+.paswrd-section{
+margin-top: 2rem;
+}
+.pswrd-title{
+font-size: 2vw;
+}
+.pswrd-input{
+width: 90%;
+height: 4vw;
+border-color: black;
+border-width: 1px;
+}
+.keep-forgot-section{
+display: flex;
+justify-content: space-between;
+margin-top: 1rem;
+}
+.keep-text{
+font-size: 1vw;
+color: #1b3363;
+cursor: pointer;
+}
+.forgot-text{
+    color: red;
+    font-size: 1vw;
+    cursor: pointer;
+
+}
+.login-btn{
+    margin-top: 2rem;
+      background-color: #1b3363;
+      color: white;
+      width: 25vw;
+      height: 4vw;
+      font-size: 2vw;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.login-footer{
+    display: flex;
+    
+    margin-top: 2rem;
+    justify-content: center;
+
+
+}
+.login-button{
+    display: flex;
+    justify-content:center ;
+}
+.first-ftr{
+    font-size: 1.2vw;
+
+}
+.scnd-ftr{
+color: red;
+font-size: 1.2vw;
+}
