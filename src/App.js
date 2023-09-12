@@ -4,7 +4,7 @@ import RouteLayout from "./Routes/RouteLayout";
 
 
 
-
+export const BaseUrl="https://suss.onrender.com";
 function App() {
   return (
   <>

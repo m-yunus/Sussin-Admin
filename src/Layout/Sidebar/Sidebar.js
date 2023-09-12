@@ -11,7 +11,7 @@ import { CiUser } from "react-icons/ci";
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const sideMenus = [
-    { name: "Dashboard", link: "/dashboard/dashhome", icon: HiOutlineHome },
+    { name: "Dashboard", link: "/dashboard", icon: HiOutlineHome },
     { name: "Categories", link: "/dashboard/categories", icon: BiCategoryAlt },
     { name: "Products", link: "/dashboard/products", icon: TbTruckDelivery },
     { name: "Users", link: "/dashboard/users", icon: LuUsers },

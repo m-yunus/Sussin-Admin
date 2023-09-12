@@ -1,6 +1,35 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { BaseUrl } from "../../../App";
 
 const UserCreationModal = ({ isOpen, onClose }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "vendor", // Default role value
+  });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleSubmit=async(e)=>{
+    console.log(formData);
+    e.preventDefault();
+    const headers = {
+      "x-access-token": sessionStorage.getItem("admin-token"),
+    };
+    console.log(headers);
+    try {
+      const res=await axios.post(`${BaseUrl}/api/admin/add-user`,formData,{headers});
+      console.log("user created succesfully",res);
+      if(res){
+        onClose()
+      }
+    } catch (error) {
+      console.log("API Error",error);
+    }
+  }
   return (
     <>
       <div
@@ -14,7 +43,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
         {/* Modal content */}
         <div className="bg-white w-1/2 p-6 rounded-lg shadow-md relative z-10">
           <h2 className="text-lg font-semibold mb-4">Create User</h2>
-
+          
           <div className="mb-4">
             <div className=" flex items-center w-full gap-8">
               <div className="w-3/4">
@@ -24,6 +53,9 @@ const UserCreationModal = ({ isOpen, onClose }) => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
                 />
               </div>
@@ -32,33 +64,26 @@ const UserCreationModal = ({ isOpen, onClose }) => {
                   Role
                 </label>
                 <select
-                  name=""
-                  id=""
+                  name="role"
+                  id="role"
+                  value={formData.role}
+                  onChange={handleInputChange}
                   className="w-full py-2 cursor-pointer px-3 border-gray-300 border rounded focus:outline-none focus:border-blue-400"
                 >
                   <option
-                    value=""
+                    value="vendor"
                     className="w-full px-3 border-gray-300 cursor-pointer rounded focus:outline-none focus:border-blue-400"
                   >
                     Vendor
                   </option>
-                  <option value="" className="cursor-pointer">
+                  <option value="user" className="cursor-pointer">
                     User
                   </option>
                 </select>
               </div>
             </div>
           </div>
-          <div className="mb-4">
-            <label htmlFor="Phone" className="block text-gray-600">
-              Phone
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
-            />
-          </div>
+        
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-600">
               Email
@@ -66,6 +91,9 @@ const UserCreationModal = ({ isOpen, onClose }) => {
             <input
               type="email"
               id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
             />
           </div>
@@ -76,6 +104,9 @@ const UserCreationModal = ({ isOpen, onClose }) => {
             <input
               type="password"
               id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
             />
           </div>
@@ -91,14 +122,9 @@ const UserCreationModal = ({ isOpen, onClose }) => {
             >
               Close
             </button>
-            <button
+            <button onClick={(e)=>handleSubmit(e)}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-              onClick={() => {
-                // Handle user creation logic here
-
-                // Close the modal
-                onClose();
-              }}
+           
             >
               Create
             </button>

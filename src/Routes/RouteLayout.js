@@ -9,6 +9,7 @@ import Products from '../Components/products/Products'
 import Users from '../Components/Users/Users'
 import VendorProfile from '../Components/Vendor_profile/VendorProfile'
 import Orders from '../Components/Orders/Orders'
+import SignupPage from '../Components/SignupPage/SignupPage'
 
 
 
@@ -19,8 +20,9 @@ const RouteLayout = () => {
     <BrowserRouter>
     <Routes>
         <Route path='/' element={<LoginPage/>}/>
+        <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/dashboard/*' element={<Dashboard/>}>
-          <Route path='dashhome' index element={<DashHome/>}/>
+          <Route  index element={<DashHome/>}/>
           <Route path='categories' element={<Categories/>}/>
           <Route path='products' element={<Products/>}/>
           <Route path='users' element={<Users/>}/>
