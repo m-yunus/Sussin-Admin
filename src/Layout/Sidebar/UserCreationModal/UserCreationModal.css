@@ -1,0 +1,42 @@
+.role-se{
+    width: auto;
+}
+.vendor-user{
+    font-size: 1vw;
+}
+@media (max-width: 655px ){
+    .use-main{
+      width: auto;
+
+
+    }
+    .input-name{
+        width: full;
+    }
+   
+    .vendor-user{
+        font-size: 2vw;
+
+    }
+    .role-title{
+        font-size: 4vw;
+    }
+    .name-title{
+        font-size: 4vw;
+    }
+    .phone-title{
+        font-size: 4vw;
+    }
+    .email-title{
+        font-size: 4vw;
+    }
+    .pas-title{
+        font-size: 4vw;
+    }
+    .cls-btn{
+        font-size: 4vw;
+    }
+    .crt-btn{
+        font-size: 4vw;
+    }
+}

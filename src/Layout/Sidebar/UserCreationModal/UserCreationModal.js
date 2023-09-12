@@ -1,10 +1,11 @@
 import React from "react";
+import './UserCreationModal.css'
 
 const UserCreationModal = ({ isOpen, onClose }) => {
   return (
     <>
       <div
-        className={`fixed inset-0 flex items-center justify-center ${
+        className={`fixed inset-0 flex  items-center justify-center ${
           isOpen ? "pointer-events-auto" : "pointer-events-none hidden"
         }`}
       >
@@ -12,29 +13,29 @@ const UserCreationModal = ({ isOpen, onClose }) => {
         <div className="fixed inset-0 bg-black opacity-50"></div>
 
         {/* Modal content */}
-        <div className="bg-white w-1/2 p-6 rounded-lg shadow-md relative z-10">
+        <div className="user-main bg-white w-1/2 p-6 rounded-lg shadow-md relative z-10">
           <h2 className="text-lg font-semibold mb-4">Create User</h2>
 
-          <div className="mb-4">
+          <div className="user mb-4">
             <div className=" flex items-center w-full gap-8">
               <div className="w-3/4">
-                <label htmlFor="name" className="block text-gray-600">
+                <label htmlFor="name" className="name-title block text-gray-600">
                   Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
+                  className="input-name w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
                 />
               </div>
-              <div className="justify-center w-1/4">
-                <label htmlFor="Role" className="block text-gray-600">
+              <div className=" role-se flex-sh justify-center w-1/4">
+                <label htmlFor="Role" className="role-title block text-gray-600">
                   Role
                 </label>
                 <select
                   name=""
                   id=""
-                  className="w-full py-2 cursor-pointer px-3 border-gray-300 border rounded focus:outline-none focus:border-blue-400"
+                  className="vendor-user w-auto py-2 cursor-pointer px-3 border-gray-300 border rounded focus:outline-none focus:border-blue-400"
                 >
                   <option
                     value=""
@@ -50,7 +51,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
             </div>
           </div>
           <div className="mb-4">
-            <label htmlFor="Phone" className="block text-gray-600">
+            <label htmlFor="Phone" className="phone-title block text-gray-600">
               Phone
             </label>
             <input
@@ -60,7 +61,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-600">
+            <label htmlFor="email" className="email-title block text-gray-600">
               Email
             </label>
             <input
@@ -70,7 +71,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="password" className="block text-gray-600">
+            <label htmlFor="password" className="pas-title block text-gray-600">
               Password
             </label>
             <input
@@ -81,7 +82,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
           </div>
           <div className="flex justify-end gap-4">
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="cls-btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
               onClick={() => {
                 // Handle user creation logic here
 
@@ -92,7 +93,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
               Close
             </button>
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="crt-btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
               onClick={() => {
                 // Handle user creation logic here
 
