@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import './User.css'
+import { BiSolidMessageSquareEdit } from 'react-icons/bi';
+import { MdDelete } from 'react-icons/md';
 import UserCreationModal from '../../Layout/Sidebar/UserCreationModal/UserCreationModal';
 
 const Users = () => {
@@ -19,9 +22,72 @@ const Users = () => {
         Create User
       </button>
         </div>
+
+
+
+        <table className="popup-table">
+              <tbody>
+                <tr>
+                  <td className='no'>NO</td>
+                  <td>NAME</td>
+                  <td>EMAIL</td>
+                  <td>PASSWORD</td>
+                  
+                 
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  
+                  <BiSolidMessageSquareEdit className='edit-icon'/>
+                  <MdDelete className='delete-icon'/>
+                  
+                  
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+
+                 
+                  <BiSolidMessageSquareEdit className='edit-icon'/>
+                  <MdDelete className='delete-icon'/>
+                  
+                  
+                
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  
+                  <BiSolidMessageSquareEdit className='edit-icon'/>
+                  <MdDelete className='delete-icon'/>
+                 
+                  
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  
+                  <BiSolidMessageSquareEdit className='edit-icon'/>
+                  <MdDelete className='delete-icon'/>
+                
+                  
+                </tr>
+              </tbody>
+            </table>
     
       </div>
       <UserCreationModal isOpen={isModalOpen} onClose={toggleModal} />
+
+     
     </>
   )
 }
