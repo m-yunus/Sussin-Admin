@@ -1,0 +1,73 @@
+/* historyData.css */
+
+/* Styling for the uploaded table container */
+.uploaded-table-container {
+    margin-top: 20px;
+    max-height:200px;
+    overflow-x: scroll;
+   
+  }
+  
+  /* Styling for the table */
+  .uploaded-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+   
+  }
+  
+  /* Styling for table headers */
+  .uploaded-table-container th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Styling for table rows */
+  .uploaded-table-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Add hover effect to table rows */
+  .uploaded-table-container tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+
+.download-button {
+  height: 40px;
+  width: 200px;
+  border-radius: 10px;
+  color: #1877d2;
+  border: 2px solid #1877d2; /* Add border property here */
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  justify-content: center;
+  margin: auto;
+  cursor: pointer;
+  font-family: 'Nunito Sans', sans-serif;
+  margin-top: 2rem;
+}
+
+  .download-button:hover{
+     color: #07437b;
+    border-color: #07437b;
+  }
+  .history-data-download-icon{
+    font-size: 20px;
+  }
+  .upload-label{
+  
+    height: 40px;
+    margin-left: 38%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+   
+  }

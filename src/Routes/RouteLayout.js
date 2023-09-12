@@ -9,6 +9,9 @@ import Products from '../Components/products/Products'
 import Users from '../Components/Users/Users'
 import VendorProfile from '../Components/Vendor_profile/VendorProfile'
 import Orders from '../Components/Orders/Orders'
+import UserData from '../Components/UserDataList/UserData'
+
+
 
 
 
@@ -26,6 +29,10 @@ const RouteLayout = () => {
           <Route path='users' element={<Users/>}/>
           <Route path='vendorProfile' element={<VendorProfile/>}/>
           <Route path='order' element={<Orders/>}/>
+          <Route path='data' element={<UserData/>}/>
+          
+          
+          
 
 
         </Route>
