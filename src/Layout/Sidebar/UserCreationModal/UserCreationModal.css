@@ -6,7 +6,7 @@
 }
 @media (max-width: 655px ){
     .use-main{
-      width: auto;
+      width: 500px;
 
 
     }
@@ -15,23 +15,23 @@
     }
    
     .vendor-user{
-        font-size: 2vw;
+        font-size: 3vw;
 
     }
     .role-title{
-        font-size: 4vw;
+        font-size: vw;
     }
     .name-title{
-        font-size: 4vw;
+        font-size: vw;
     }
     .phone-title{
-        font-size: 4vw;
+        font-size: vw;
     }
     .email-title{
-        font-size: 4vw;
+        font-size: vw;
     }
     .pas-title{
-        font-size: 4vw;
+        font-size: vw;
     }
     .cls-btn{
         font-size: 4vw;

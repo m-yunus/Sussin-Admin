@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './User.css'
 import { BiSolidMessageSquareEdit } from 'react-icons/bi';
-import { MdDelete } from 'react-icons/md';
+import {BiDotsVerticalRounded } from 'react-icons/bi';
 import UserCreationModal from '../../Layout/Sidebar/UserCreationModal/UserCreationModal';
 
 const Users = () => {
@@ -25,13 +25,14 @@ const Users = () => {
 
 
 
-        <table className="popup-table">
+        <table className="popup-table ms-2">
               <tbody>
-                <tr>
+                <tr className='table-title'>
                   <td className='no'>NO</td>
                   <td>NAME</td>
                   <td>EMAIL</td>
                   <td>PASSWORD</td>
+                  <td className='action'>ACTIONS</td>
                   
                  
                 </tr>
@@ -40,10 +41,10 @@ const Users = () => {
                   <td>-</td>
                   <td>-</td>
                   <td>-</td>
-                  
+                  <td>
                   <BiSolidMessageSquareEdit className='edit-icon'/>
-                  <MdDelete className='delete-icon'/>
-                  
+                  <BiDotsVerticalRounded className='delete-icon'/>
+                  </td>
                   
                 </tr>
                 <tr>
@@ -53,9 +54,10 @@ const Users = () => {
                   <td>-</td>
 
                  
+                  <td>
                   <BiSolidMessageSquareEdit className='edit-icon'/>
-                  <MdDelete className='delete-icon'/>
-                  
+                  <BiDotsVerticalRounded className='delete-icon'/>
+                  </td>
                   
                 
                 </tr>
@@ -64,23 +66,12 @@ const Users = () => {
                   <td>-</td>
                   <td>-</td>
                   <td>-</td>
-                  
+                  <td>
                   <BiSolidMessageSquareEdit className='edit-icon'/>
-                  <MdDelete className='delete-icon'/>
-                 
-                  
+                  <BiDotsVerticalRounded className='delete-icon'/>
+                  </td>
                 </tr>
-                <tr>
-                  <td>4</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  
-                  <BiSolidMessageSquareEdit className='edit-icon'/>
-                  <MdDelete className='delete-icon'/>
-                
-                  
-                </tr>
+               
               </tbody>
             </table>
     

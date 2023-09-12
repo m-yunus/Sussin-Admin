@@ -13,7 +13,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
         <div className="fixed inset-0 bg-black opacity-50"></div>
 
         {/* Modal content */}
-        <div className="user-main bg-white w-1/2 p-6 rounded-lg shadow-md relative z-10">
+        <div className="user-main bg-white w-3/3 p-6 rounded-lg shadow-md relative z-10">
           <h2 className="text-lg font-semibold mb-4">Create User</h2>
 
           <div className="user mb-4">
