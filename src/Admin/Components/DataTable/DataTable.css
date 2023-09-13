@@ -1,0 +1,49 @@
+.popup-table {
+    margin-top: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 11px;
+  color: #000;
+  font-weight: 100;
+  background-color: grey;
+}
+.popup-table tr{
+height: 27px!important;
+
+}
+.popup-table td {
+  border: px solid white;
+ 
+  padding: 8px;
+
+ 
+  text-align:center;
+  gap: 10rem!important;
+}
+.head-titles{
+    background-color: rgb(229, 227, 227);
+   
+}
+.clms{
+  box-shadow:10px 5px 15px  rgb(41, 40, 40);
+  background-color: white;
+  
+  margin-top: 2rem;
+  padding-top: 3rem;
+ 
+
+}
+.dot-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media(max-width:382px){
+  .popup-table{
+    font-size: 2.5vw;
+    height: 460px;
+  }
+  
+}

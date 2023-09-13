@@ -10,6 +10,7 @@ import Products from "../Admin/Components/products/Products";
 import Users from "../Admin/Components/Users/Users";
 import VendorProfile from "../Admin/Components/Vendor_profile/VendorProfile";
 import Orders from "../Admin/Components/Orders/Orders";
+import DataTable from "../Admin/Components/DataTable/DataTable";
 const RouteLayout = () => {
   return (
     <>
@@ -24,6 +25,7 @@ const RouteLayout = () => {
             <Route path="users" element={<Users />} />
             <Route path="vendorProfile" element={<VendorProfile />} />
             <Route path="order" element={<Orders />} />
+            <Route path="table" element={<DataTable />} />
 
           </Route>
         </Routes>

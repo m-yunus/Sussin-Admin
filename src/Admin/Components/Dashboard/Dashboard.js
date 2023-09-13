@@ -12,7 +12,7 @@ const Dashboard = () => {
     setDropDown(!DropDownOpen);
   };
   return (
-    <section className="flex w-full ">
+    <section className="flex w-full  ">
      <Sidebar/>
       <div className="text-xl text-gray-900 font-semibold w-full h-screen flex flex-col ">
         <div className="bg-gray-300 h-16 w-full p-2 flex justify-between items-center">
