@@ -2,34 +2,34 @@ import axios from "axios";
 import React, { useState } from "react";
 import { BaseUrl } from "../../../App";
 
-const UserCreationModal = ({ isOpen, onClose }) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    role: "vendor", // Default role value
-  });
+const UserCreationModal = ({ isOpen, onClose ,FormData,editsubmit ,setFormData ,editedUser }) => {
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...FormData, [name]: value });
   };
-  const handleSubmit=async(e)=>{
-    console.log(formData);
+  const handleSubmit = async (e) => {
+    console.log(FormData);
     e.preventDefault();
     const headers = {
       "x-access-token": sessionStorage.getItem("admin-token"),
     };
     console.log(headers);
     try {
-      const res=await axios.post(`${BaseUrl}/api/admin/add-user`,formData,{headers});
-      console.log("user created succesfully",res);
-      if(res){
-        onClose()
+      const res = await axios.post(`${BaseUrl}/api/admin/add-user`, FormData, {
+        headers,
+      });
+      console.log("user created succesfully", res);
+
+      if (res) {
+        onClose();
+        setFormData((prev)=>({...prev,name:"",email:"",password:"",userType:"vendor"}))
       }
     } catch (error) {
-      console.log("API Error",error);
+      console.log("API Error", error);
     }
-  }
+  };
+
   return (
     <>
       <div
@@ -43,7 +43,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
         {/* Modal content */}
         <div className="bg-white w-1/2 p-6 rounded-lg shadow-md relative z-10">
           <h2 className="text-lg font-semibold mb-4">Create User</h2>
-          
+
           <div className="mb-4">
             <div className=" flex items-center w-full gap-8">
               <div className="w-3/4">
@@ -54,36 +54,37 @@ const UserCreationModal = ({ isOpen, onClose }) => {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
+                  value={FormData.name}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
                 />
               </div>
               <div className="justify-center w-1/4">
-                <label htmlFor="Role" className="block text-gray-600">
+                <label htmlFor="userType" className="block text-gray-600">
                   Role
                 </label>
                 <select
-                  name="role"
-                  id="role"
-                  value={formData.role}
+                  name="userType"
+                  id="userType"
+                  value={FormData.userType}
                   onChange={handleInputChange}
                   className="w-full py-2 cursor-pointer px-3 border-gray-300 border rounded focus:outline-none focus:border-blue-400"
                 >
                   <option
                     value="vendor"
+                    name="vendor"
                     className="w-full px-3 border-gray-300 cursor-pointer rounded focus:outline-none focus:border-blue-400"
                   >
                     Vendor
                   </option>
-                  <option value="user" className="cursor-pointer">
+                  <option value="user" name="user" className="cursor-pointer">
                     User
                   </option>
                 </select>
               </div>
             </div>
           </div>
-        
+
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-600">
               Email
@@ -92,7 +93,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
               type="email"
               id="email"
               name="email"
-              value={formData.email}
+              value={FormData.email}
               onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
             />
@@ -105,7 +106,7 @@ const UserCreationModal = ({ isOpen, onClose }) => {
               type="password"
               id="password"
               name="password"
-              value={formData.password}
+              value={FormData.password}
               onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
             />
@@ -122,11 +123,11 @@ const UserCreationModal = ({ isOpen, onClose }) => {
             >
               Close
             </button>
-            <button onClick={(e)=>handleSubmit(e)}
+            <button
+              onClick={editedUser ? editsubmit: handleSubmit}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-           
             >
-              Create
+              {editedUser ? "Update" : "Create"}
             </button>
           </div>
         </div>
