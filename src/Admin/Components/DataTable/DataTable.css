@@ -1,49 +1,64 @@
-.popup-table {
-    margin-top: 10px;
-  border-collapse: collapse;
+.super-admin-table{
+  margin-top: 1px;
   width: 100%;
-  font-size: 11px;
-  color: #000;
+   border-collapse: separate;
+border-spacing: 0px 20px;
+background-color: rgb(234, 234, 234);
+
+}
+
+
+.table-title{
+  font-size: 10px;
   font-weight: 100;
-  background-color: grey;
-}
-.popup-table tr{
-height: 27px!important;
-
-}
-.popup-table td {
-  border: px solid white;
  
-  padding: 8px;
-
- 
-  text-align:center;
-  gap: 10rem!important;
+  
 }
-.head-titles{
-    background-color: rgb(229, 227, 227);
-   
+td{
+  font-size: 10px;
+}
+.table-titles{
+
+
+  
+  
+
+
 }
 .clms{
-  box-shadow:10px 5px 15px  rgb(41, 40, 40);
   background-color: white;
-  
-  margin-top: 2rem;
-  padding-top: 3rem;
+  height: 6vw;
+  box-shadow:0 5px 15px 0 rgb(129, 124, 124);
+
+ padding-left: 13px;
+ border-radius: 20px;
+
+
+
  
-
 }
-.dot-icon{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.clm{
+  color: red;
+  font-weight: 100;
 }
-
-
-@media(max-width:382px){
-  .popup-table{
-    font-size: 2.5vw;
-    height: 460px;
+.table-icon{
+  width: px;
+  height: 20px;
+  font-size: large;
+  padding-left: 9px;
+}
+.clm1{
+  padding-left: 9px;
+}
+@media(max-width:599px){
+  .table-title{
+    font-size: 1.5vw;
+    font-weight: 100;
   }
-  
+  .table-icon{
+    width: px;
+    height: 20px;
+    font-size: 2vw;
+    padding-left: 9px;
+  }
 }

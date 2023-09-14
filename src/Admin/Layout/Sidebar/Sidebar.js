@@ -1,4 +1,5 @@
 import React,{ useState } from "react";
+import './Slidebar.css'
 import { Link } from "react-router-dom";
 import { HiMenuAlt3, HiOutlineHome } from "react-icons/hi";
 
@@ -21,8 +22,8 @@ const Sidebar = () => {
   return (
    <>
     <div
-        className={`bg-indigo-900 min-h-screen ${
-          open ? "w-72" : "w-16"
+        className={`main bg-indigo-900 min-h-screen ${
+          open ? "w-72" : "w-16 "
         } duration-500 text-gray-100 px-4`}
       >
         <div className="py-3 flex justify-end">

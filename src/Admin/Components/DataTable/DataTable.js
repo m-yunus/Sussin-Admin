@@ -4,64 +4,96 @@ import { BsThreeDots } from 'react-icons/bs';
 
 const DataTable = () => {
   return (
-    <>
+  
     
-    <table className="popup-table">
-              <tbody>
-                <tr className='head-titles'>
-                  <td>Emp.ID</td>
-                  <td>PHOTO</td>
-                  <td>Name</td>
-                  <td>EMAIL</td>
-                  <td>COUNTRY</td>
-                  <td>DATE</td>
-                  <td >ACTIONS</td>
-                </tr>
-                <tr className='clms'>
-                  <td >#1</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td className='dot-icon'><BsThreeDots/></td>
-                </tr>
-                <tr className='clms'>
-                  <td>#2</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  
-                  <td className='dot-icon'><BsThreeDots/></td>
-                </tr>
-                <tr className='clms'>
-                  <td>#3</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  
-                  <td className='dot-icon'><BsThreeDots/></td>
-                </tr>
-                <tr className='clms'>
-                  <td>#4</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  
-                  <td className='dot-icon'><BsThreeDots/></td>
-                </tr>
-              </tbody>
-            </table>
-         
+    
+    <table className="super-admin-table px-10">
+            <tr className='table-titles'>
+            <td className="text-center">
+                <input type="checkbox" name="" id="" />
+              </td>
+              <td className='table-title'>ID</td>
+              <td className='table-title'>PHOTO</td>
+              <td className='table-title'>NAME</td>
+              <td className='table-title'>EMAIL</td>
+              <td className='table-title' > COUNTRY</td>
+              <td className='table-title'  >DATE</td>
+              <td className='table-title'  > STATUS</td>
+              <td className='table-title'  >ACTION</td>
+            </tr>
+            
+            <tr className='clms'>
+              
+              
+            <td className="text-center">
+                <input type="checkbox" name="" id="" />
+              </td>
+              <td className='clm'>#1</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              
+              <td className='table-icon' >
+               <BsThreeDots/>
+              </td>
+            </tr>
+            <tr className='clms' >
+            <td className="text-center">
+              <input type="checkbox" name="" id="" />
+              </td>
+              <td className='clm'>#2</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              
+              <td className='table-icon' >
+               <BsThreeDots/>
+              </td>
+            </tr>
+            <tr className='clms'>
+            <td className="text-center">
+                <input type="checkbox" name="" id="" />
+              </td>
+              <td
+              className='clm'>#3</td>
+              <td className='clm1'></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              
+              <td className='table-icon' >
+               <BsThreeDots/>
+              </td>
+            </tr>
+            <tr className='clms' >
+            <td className="text-center">
+                <input type="checkbox" name="" id="" />
+              </td>
+              <td className='clm'>#4</td>
+              <td ></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              
+              <td className='table-icon' >
+               <BsThreeDots/>
+              </td>
+            </tr>
+           
+          </table>
 
       
-    </>
+   
   )
 }
 
