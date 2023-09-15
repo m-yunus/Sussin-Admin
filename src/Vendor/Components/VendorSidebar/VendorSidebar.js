@@ -15,8 +15,9 @@ const VendorSidebar = () => {
     ];
   return (
     <>
+    
     <div
-        className={`bg-indigo-900 min-h-screen ${
+        className={`  bg-indigo-900  max-h-screen ${
           open ? "w-72" : "w-16"
         } duration-500 text-gray-100 px-4`}
       >

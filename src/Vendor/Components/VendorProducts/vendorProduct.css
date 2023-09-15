@@ -1,0 +1,60 @@
+.create-product{
+    width: 100%;
+    height: auto;
+    border: solid;
+    padding: 20px;
+}
+
+.create-product h1{
+    font-size: 16px;
+    color: gray;
+}
+.create-product p{
+    font-size: 12px;
+    color: gray;
+}
+.create-top-section input{
+    border: solid 1px gray;
+}
+.create-top-section select{
+border: solid 1px gray;
+}
+
+.create-top-section input::placeholder{
+    color: black;
+    font-size: 12px;
+    padding-left: 5px!important;
+}
+.upload-btn{
+    border: solid 1px gray;
+    font-size: 12px;
+    width: 100px;
+}
+.browse-btn{
+     border: solid 1px gray;
+    font-size: 12px;
+    width: 143px;
+}
+.prvw-btn{
+    width: 100px;
+    height: 40px;
+    border: solid 1px gray;
+}
+.create-btn{
+    width: 120px;
+    height: 40px;
+    border: solid 1px gray;
+}
+.product-bottom input{
+     border: solid 1px gray;
+}
+.product-bottom select{
+     border: solid 1px gray;
+}
+.product-bottom {
+    justify-content: space-between!important;
+    display: flex;
+}
+.unni{
+    width: 100px!important;
+}

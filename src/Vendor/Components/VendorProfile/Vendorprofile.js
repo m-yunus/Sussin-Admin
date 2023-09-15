@@ -31,7 +31,7 @@ console.log(res);
       
   return (
     <>
-    <div className="bg-gray-100 h-full w-full ">
+    <div className="bg-gray-100 min-h-screen w-full ">
         <div className="w-full h-24 flex p-4">
           <button
             onClick={toggleModal}
