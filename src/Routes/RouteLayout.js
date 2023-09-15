@@ -14,8 +14,7 @@ import Vendorlogin from "../Vendor/Components/Vendorlogin/Vendorlogin";
 import VendorDashboard from "../Vendor/Components/VendorDashboard/VendorDashboard";
 import VendorDashprofile from "../Vendor/Components/VendorProfile/Vendorprofile";
 import VendorProducts from "../Vendor/Components/VendorProducts/VendorProducts";
-
-
+import Variations from "../Vendor/Components/VendorProducts/Variations";
 
 const RouteLayout = () => {
   return (
@@ -23,8 +22,8 @@ const RouteLayout = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />} />
-      <Route path="/vendorlogin" element={<Vendorlogin/>}/>
-     
+          <Route path="/vendorlogin" element={<Vendorlogin />} />
+
           <Route path="/dashboard/*" element={<Dashboard />}>
             <Route index element={<DashHome />} />
             <Route path="categories" element={<Categories />} />
@@ -32,13 +31,14 @@ const RouteLayout = () => {
             <Route path="users" element={<Users />} />
             <Route path="vendorProfile" element={<VendorProfile />} />
             <Route path="order" element={<Orders />} />
-
           </Route>
 
-        <Route path="/vendorDashboard/*" element={<VendorDashboard/>}>
-        <Route index element={<VendorDashprofile/>}/>
-        <Route path="products" element={<VendorProducts/>}/>
-        </Route>
+          <Route path="/vendorDashboard/*" element={<VendorDashboard />}>
+            <Route index element={<VendorDashprofile />} />
+            <Route path="products" element={<VendorProducts />}/>
+            
+            <Route path=":productid" element={<Variations />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

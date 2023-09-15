@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 function ProductVariations() {
+  const {productid} =useParams()
+  console.log(productid);
   // Define state to store the variations, with an initial variation
   const [variations, setVariations] = useState({
     'Variation #1': {

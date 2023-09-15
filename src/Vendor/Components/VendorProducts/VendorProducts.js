@@ -3,6 +3,7 @@ import "./vendorProduct.css";
 import axios from "axios";
 import { BaseUrl } from "../../../App";
 import Variations from "./Variations";
+import { useNavigate, useParams } from "react-router-dom";
 const VendorProducts = () => {
   const [images, setImages] = useState([]);
   const [productdata,setProductdata]=useState({
@@ -11,8 +12,10 @@ const VendorProducts = () => {
     categoryId:"",
    slug:""
   })
+  const navigate = useNavigate();
   // Function to handle image selection
-
+  const { productId } = useParams();
+  
   const handleImageUpload = (event) => {
     const selectedImages = Array.from(event.target.files);
     console.log(selectedImages);
@@ -31,16 +34,32 @@ const VendorProducts = () => {
       "x-access-token": sessionStorage.getItem("vendor-token"),
     };
    console.log(productdata,images);
-    const formData = new FormData();
-    formData.append("name", productdata.name);
-    formData.append("description", productdata.description);
-    formData.append("categoryId", productdata.categoryId);
-    formData.append("slug", productdata.slug);
-    formData.append("images", images);
+ 
+    const formData = new FormData()
+    formData.append('name', productdata.name )
+    formData.append('description', productdata.description );
+    formData.append('categoryId',"6501529642d5caa305878fe5");
+    formData.append('slug', productdata.slug );
+    for(var i =0;i<images.length;i++){
+
+      formData.append('images', images[i]);
+    }
+
+    console.log(formData,"form data")
+
   console.log(formData);
     try {
       const res=await axios.post(`${BaseUrl}/api/product/create`,formData,{headers});
       console.log('sumbmitted succesfully',res);
+
+
+     
+    
+        const productid = res.data.product._id;
+  
+    console.log(productId);
+        navigate(`/vendorDashboard/${productid}`);
+
     } catch (error) {
       console.log("API",error);
     }
@@ -147,7 +166,7 @@ const VendorProducts = () => {
         </form>
         </div>
 
-       <Variations/>
+       {/* <Variations/> */}
       </div>
     </>
   );
