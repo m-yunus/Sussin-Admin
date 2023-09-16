@@ -15,6 +15,7 @@ import VendorDashboard from "../Vendor/Components/VendorDashboard/VendorDashboar
 import VendorDashprofile from "../Vendor/Components/VendorProfile/Vendorprofile";
 import VendorProducts from "../Vendor/Components/VendorProducts/VendorProducts";
 import Variations from "../Vendor/Components/VendorProducts/Variations";
+import Productdetails from "../Vendor/Productdetails/Productdetails";
 
 const RouteLayout = () => {
   return (
@@ -35,8 +36,8 @@ const RouteLayout = () => {
 
           <Route path="/vendorDashboard/*" element={<VendorDashboard />}>
             <Route index element={<VendorDashprofile />} />
-            <Route path="products" element={<VendorProducts />}/>
-            
+            <Route path="add_products" element={<VendorProducts />}/>
+            <Route path="product_details" element={<Productdetails/>}/>
             <Route path=":productid" element={<Variations />} />
           </Route>
         </Routes>
