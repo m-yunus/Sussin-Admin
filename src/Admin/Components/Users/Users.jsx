@@ -5,6 +5,7 @@ import axios from "axios";
 import { BaseUrl } from "../../../App";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
+import Error_Popup from "../Error_Popup/Error_Popup";
 
 const Users = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -212,6 +213,7 @@ const Users = () => {
         setFormData={setFormData}
         editedUser={editedUser}
       />
+      
     </>
   );
 };
