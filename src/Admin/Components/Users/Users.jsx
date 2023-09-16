@@ -4,6 +4,7 @@ import "./Users.css";
 import axios from "axios";
 import { BaseUrl } from "../../../App";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { CiSearch } from "react-icons/ci";
 
 const Users = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -88,7 +89,7 @@ const Users = () => {
   }, [gettedData]);
   console.log(gettedData, "sdffsd");
 
-    //   delete a  user
+  //   delete a  user
   const handleDelete = async (userid) => {
     console.log(userid);
     const headers = {
@@ -111,12 +112,25 @@ const Users = () => {
   return (
     <>
       <div className=" h-full w-full ">
-        <div className="w-full h-24 flex p-4 bg-blue-600">
+        <div className="users-top flex items-center justify-between  h-20   px-4  border border-gray-400">
+          <form class="search-bar">
+            <div class="search-icon">
+              <CiSearch />
+            </div>
+            <input
+              type="search"
+              id="default-search"
+              class="search-input"
+              placeholder="Search for users..."
+              required
+            />
+          </form>
+
           <button
             onClick={toggleModal}
-            className="bg-blue-500 text-white px-2 text-sm h-8 w-32 text-center py-2 rounded hover:bg-blue-600"
+            className="add-user bg-blue-500 text-white hover:bg-blue-600"
           >
-            Create User
+            Add User
           </button>
         </div>
         <div className="p-5 table-container">
@@ -167,8 +181,6 @@ const Users = () => {
                     ) : (
                       <div className=" inactive">Inactive</div>
                     )}
-
-                   
                   </td>
                   <td className="flex gap-4">
                     <span
