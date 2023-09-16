@@ -6,6 +6,7 @@ const Error_Popup = () => {
   return (
     <>
       <div className="error">
+        
         <BiError className="text-4xl" />
 
         <h2>Invalid user name</h2>

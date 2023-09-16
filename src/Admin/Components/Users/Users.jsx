@@ -6,6 +6,7 @@ import { BaseUrl } from "../../../App";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
 import Error_Popup from "../Error_Popup/Error_Popup";
+import Success_Popup from "../Success_Popup/Success_Popup";
 
 const Users = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -213,7 +214,7 @@ const Users = () => {
         setFormData={setFormData}
         editedUser={editedUser}
       />
-      
+   
     </>
   );
 };
