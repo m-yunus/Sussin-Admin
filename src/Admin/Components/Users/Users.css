@@ -3,13 +3,84 @@
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ccc;
+   font-size: 14px;
+    
+
   }
+  .user-table th{
+    background-color: #f3f6f9;
+    text-align: left;
+  }
+  .profile-picture{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    
+  }
+  .user-table tr  {
+ border: 1px solid #ccc;
+
+  }
+  .user-table th  {
   
-  .user-table th, .user-table td {
-    border: 1px solid #ccc;
     padding: 8px;
   
   }
+  .user-table td  {
+      padding: 8px;
+      font-weight: 300;
+  }
+  .active{
+     background-color: #88c34a;
+     color: #008000; 
+     width: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 5px;
+     font-size: 12px;
+     font-weight: 600;
+     height: 20px;
+  }
+  .inactive{
+      background-color: #ffdddd;
+     color: #ff0000;
+     width: 60px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 5px;
+     font-size: 12px;
+     font-weight: 600;
+      height: 20px;
+  }
+  .edit-icon{
+  color: #1ea6d3;
+
+  }
+  .delete-icon{
+    color: #ef476f;
+  }
+  .custom-checkbox input[type="checkbox"] {
+  appearance: none; /* Remove default styles */
+  -webkit-appearance: none; /* Remove default styles for WebKit browsers */
+  -moz-appearance: none; /* Remove default styles for Mozilla Firefox */
+
+  width: 16px; /* Set the width of the checkbox */
+  height: 16px; /* Set the height of the checkbox */
+  border: 2px solid #3498db; /* Set the border color */
+  border-radius: 3px; /* Round the edges of the checkbox */
+  outline: none; /* Remove outline when focused */
+  transition: background-color 0.3s; /* Add a transition for hover effect */
+}
+
+/* Style the custom checkbox when checked */
+.custom-checkbox input[type="checkbox"]:checked{
+  background-color: #3498db!important; /* Set the background color when checked */
+}
+.parent-class .user-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
   
   /* Input and select styling */
   .user-table input[type="text"],
@@ -38,3 +109,29 @@
   .user-table tbody tr:hover {
     background-color: #f5f5f5;
   }
+.table-container {
+  overflow-x: auto;
+}
+@media(max-width:900px){
+.user-name{
+  min-width: 130px!important;
+  
+}
+.date{
+  min-width: 100px!important;
+ 
+  
+}
+.status{
+  min-width: 130px!important;
+  
+  
+}
+.email{
+  min-width: 150px!important;
+  
+  
+}
+}
+
+
