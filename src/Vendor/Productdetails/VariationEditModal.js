@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import { BaseUrl } from "../../App";
 import axios from "axios";
 
-const VariationEditModal = ({ isOpen, onClose, selectedvariation,fetchVariation }) => {
+const VariationEditModal = ({
+  isOpen,
+  onClose,
+  selectedvariation,
+  fetchVariation,
+}) => {
   const [formData, setFormData] = useState({
     price: "",
     stock: "",
@@ -42,7 +47,7 @@ const VariationEditModal = ({ isOpen, onClose, selectedvariation,fetchVariation 
       setShowimage(true);
     }
   }, [selectedvariation]);
-console.log(selectedvariation);
+  console.log(selectedvariation);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -56,41 +61,68 @@ console.log(selectedvariation);
 
   const handleUpdate = async () => {
     const data = new FormData();
-  
-    data.append("price", formData.price ? parseFloat(formData.price) : undefined);
-    data.append("stock", formData.stock ? parseFloat(formData.stock) : undefined);
+
+    data.append(
+      "price",
+      formData.price ? parseFloat(formData.price) : undefined
+    );
+    data.append(
+      "stock",
+      formData.stock ? parseFloat(formData.stock) : undefined
+    );
     data.append("size", formData.size || undefined);
     data.append("color", formData.color || undefined);
-  
+
     for (var i = 0; i < images.length; i++) {
       data.append("images", images[i]);
     }
-  
+
     data.append("variationId", selectedvariation?._id || undefined);
-    data.append("weight", formData.weight ? parseFloat(formData.weight) : undefined);
-    data.append("dimensionX", formData.dimensionX !==0 ? parseFloat(formData.dimensionX) : undefined);
-    data.append("dimensionY", formData.dimensionY !==0? parseFloat(formData.dimensionY) : undefined);
-    data.append("dimensionZ", formData.dimensionZ !==0 ? parseFloat(formData.dimensionZ) : undefined);
-    data.append("offer_price", formData.offer_price ? parseFloat(formData.offer_price) : undefined);
+    data.append(
+      "weight",
+      formData.weight ? parseFloat(formData.weight) : undefined
+    );
+    data.append(
+      "dimensionX",
+      formData.dimensionX !== 0 ? parseFloat(formData.dimensionX) : undefined
+    );
+    data.append(
+      "dimensionY",
+      formData.dimensionY !== 0 ? parseFloat(formData.dimensionY) : undefined
+    );
+    data.append(
+      "dimensionZ",
+      formData.dimensionZ !== 0 ? parseFloat(formData.dimensionZ) : undefined
+    );
+    data.append(
+      "offer_price",
+      formData.offer_price ? parseFloat(formData.offer_price) : undefined
+    );
     data.append("offer_start_date", formData.offer_start_date || undefined);
     data.append("offer_end_date", formData.offer_end_date || undefined);
-    data.append("margin", formData.margin !==0 ? parseFloat(formData.margin) : undefined);
-  
+    data.append(
+      "margin",
+      formData.margin !== 0 ? parseFloat(formData.margin) : undefined
+    );
+
     const headers = {
       "x-access-token": sessionStorage.getItem("vendor-token"),
     };
-  
+
     console.log(selectedvariation?._id);
     try {
-      const res = await axios.patch(`${BaseUrl}/api/product/update-variation`, data, { headers })
+      const res = await axios.patch(
+        `${BaseUrl}/api/product/update-variation`,
+        data,
+        { headers }
+      );
       console.log("updated successfully", res.data);
-      fetchVariation()
-      onclose()
+      fetchVariation();
+      onclose();
     } catch (error) {
       console.log(error);
     }
   };
-  
 
   return (
     <>
