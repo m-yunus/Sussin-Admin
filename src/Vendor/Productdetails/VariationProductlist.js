@@ -3,12 +3,18 @@ import React, { useEffect, useState } from 'react'
 import { BaseUrl } from '../../App'
 import { useParams } from 'react-router-dom'
 import { RiMoreFill } from 'react-icons/ri'
+import VariationEditModal from './VariationEditModal'
 
 const VariationProductlist = () => {
   const {variationProductid}=useParams();
   const [gettedVariation,setgettedVariation]=useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
-  console.log(variationProductid);
+  const [selectedvariation,setSelectedVariation]=useState(null)
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  
+  };
   const fetchVariation=async()=>{
     const headers = {
       "x-access-token": sessionStorage.getItem("vendor-token"),
@@ -41,6 +47,15 @@ const VariationProductlist = () => {
       console.log(error);
     }
   }
+  const handlemodalopen=(variations)=>{
+    setIsModalOpen(true)
+    setOpenDropdownIndex(null)
+    
+    setSelectedVariation(variations)
+   
+  }
+
+
   return (
     <>
       <div className="p-5">
@@ -93,12 +108,19 @@ const VariationProductlist = () => {
                     <button className='flex items-center space-x-1'   onClick={() => setOpenDropdownIndex(i === openDropdownIndex ? null : i)}><RiMoreFill className='text-blue-500'/></button>
                     {openDropdownIndex === i && (
                     <div className='absolute top-3 right-0 mt-2 w-32 bg-white border border-gray-400 rounded shadow-md z-10'>
+                       <div
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                       onClick={()=>handlemodalopen(variation)}
+                          
+                        >
+                          Edit
+                        </div>
                     <div
                           className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                           onClick={()=>handleDeleteVariation(variation)}
                           
                         >
-                          Delete
+                          Delete 
                         </div>
 
                     </div>
@@ -110,7 +132,7 @@ const VariationProductlist = () => {
           </tbody>
         </table>
       </div>
-      
+      <VariationEditModal isOpen={isModalOpen} onClose={toggleModal} selectedvariation={selectedvariation} fetchVariation={fetchVariation} />
     </>
   )
 }
