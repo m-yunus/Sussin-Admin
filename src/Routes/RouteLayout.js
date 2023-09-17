@@ -16,6 +16,7 @@ import VendorDashprofile from "../Vendor/Components/VendorProfile/Vendorprofile"
 import VendorProducts from "../Vendor/Components/VendorProducts/VendorProducts";
 import Variations from "../Vendor/Components/VendorProducts/Variations";
 import Productdetails from "../Vendor/Productdetails/Productdetails";
+import VariationProductlist from "../Vendor/Productdetails/VariationProductlist";
 
 const RouteLayout = () => {
   return (
@@ -39,6 +40,7 @@ const RouteLayout = () => {
             <Route path="add_products" element={<VendorProducts />}/>
             <Route path="product_details" element={<Productdetails/>}/>
             <Route path=":productid" element={<Variations />} />
+            <Route path=":variationProductid/:slug" element={<VariationProductlist/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

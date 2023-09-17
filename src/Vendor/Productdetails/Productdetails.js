@@ -3,13 +3,14 @@ import { BaseUrl } from "../../App";
 import axios from "axios";
 import { RiMoreFill } from "react-icons/ri";
 import ProductEditModal from "./ProductEditModal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Productdetails = () => {
   const [productData, setproductData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
+  const navigate=useNavigate();
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
     productTable();
@@ -52,6 +53,9 @@ const handleEditProduct=(product)=>{
   setproductcurrentdetail(product)
   toggleModal()
 
+}
+const NavigateVariation=(variationProductid,slug)=>{
+  navigate(`/vendorDashboard/${variationProductid}/${slug}`);
 }
 console.log(productCurrentdetail);
   return (
@@ -112,12 +116,12 @@ console.log(productCurrentdetail);
                         >
                           Delete
                         </div>
-                        <Link to="/productvariations"> <div
+                     <div
                           className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                       
+                       onClick={()=>NavigateVariation(product?._id,product?.slug)}
                         >
                          Variations
-                        </div></Link>
+                        </div>
                        
                       </div>
                      
