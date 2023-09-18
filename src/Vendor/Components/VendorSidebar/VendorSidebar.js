@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { AiFillProfile } from 'react-icons/ai';
+import { CiDeliveryTruck } from 'react-icons/ci';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import { TbTruckDelivery } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
@@ -10,7 +11,8 @@ const VendorSidebar = () => {
     const sideMenus = [
       { name: "Profile", link: "/vendorDashboard", icon: AiFillProfile },
     
-      { name: "Products", link: "/vendorDashboard/products", icon: TbTruckDelivery },
+      { name: "Products", link: "/vendorDashboard/add_products", icon: TbTruckDelivery },
+      {name:"product List", link :"/vendorDashboard/product_details",icon:CiDeliveryTruck}
 
     ];
   return (

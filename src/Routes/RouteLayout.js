@@ -15,6 +15,11 @@ import VendorDashboard from "../Vendor/Components/VendorDashboard/VendorDashboar
 import VendorDashprofile from "../Vendor/Components/VendorProfile/Vendorprofile";
 import VendorProducts from "../Vendor/Components/VendorProducts/VendorProducts";
 import Variations from "../Vendor/Components/VendorProducts/Variations";
+import Productdetails from "../Vendor/Productdetails/Productdetails";
+import VariationProductlist from "../Vendor/Productdetails/VariationProductlist";
+import SuperAdminlogin from "../SuperAdmin/SuperAdminLogin/SuperAdminlogin";
+import SuperadminDashboard from "../SuperAdmin/SuperadminDashboard/SuperadminDashboard";
+import CategoryList from "../SuperAdmin/Categorylist/CategoryList";
 
 const RouteLayout = () => {
   return (
@@ -23,6 +28,9 @@ const RouteLayout = () => {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/vendorlogin" element={<Vendorlogin />} />
+          <Route path="/superadmin" element={<SuperAdminlogin />} />
+
+
 
           <Route path="/dashboard/*" element={<Dashboard />}>
             <Route index element={<DashHome />} />
@@ -35,10 +43,16 @@ const RouteLayout = () => {
 
           <Route path="/vendorDashboard/*" element={<VendorDashboard />}>
             <Route index element={<VendorDashprofile />} />
-            <Route path="products" element={<VendorProducts />}/>
-            
+            <Route path="add_products" element={<VendorProducts />}/>
+            <Route path="product_details" element={<Productdetails/>}/>
             <Route path=":productid" element={<Variations />} />
+            <Route path=":variationProductid/:slug" element={<VariationProductlist/>}/>
           </Route>
+
+    <Route path="/superadmin_dashboard/*" element={<SuperadminDashboard/>}>
+    <Route index element={<CategoryList />} />
+    </Route>
+
         </Routes>
       </BrowserRouter>
     </>

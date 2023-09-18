@@ -7,6 +7,7 @@ const Updateprofile = ({isOpen,onClose}) => {
     business_name:"",
     brand_description:""
    })
+   const [selectedFile, setSelectedFile] = useState(null);
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevdata)=>({ ...prevdata, [name]: value }));
@@ -31,6 +32,43 @@ const Updateprofile = ({isOpen,onClose}) => {
        }
       
       }
+  
+
+  const handleFileChange = (event) => {
+    // Check if the selected file is a PNG or JPEG image
+    const file = event.target.files[0];
+    if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+      setSelectedFile(file);
+    } else {
+      // Display an error message or reset the input
+      alert('Please select a valid PNG or JPEG image.');
+      event.target.value = null;
+    }
+  };
+
+  const handleSave = async () => {
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append('logo', selectedFile);
+
+      const headers = {
+        "x-access-token": sessionStorage.getItem("vendor-token"),
+      };
+
+      try {
+        const response = await axios.patch(`${BaseUrl}/api/vendor/update-logo`, formData, { headers });
+        console.log('Logo updated successfully', response.data);
+
+        // Clear the selected file after successful update
+        setSelectedFile(null);
+      } catch (error) {
+        console.error('Error updating logo', error);
+      }
+    } else {
+      alert('Please select a valid PNG or JPEG image before saving.');
+    }
+  };
+
   return (
     <>
     
@@ -78,7 +116,19 @@ const Updateprofile = ({isOpen,onClose}) => {
               onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
             />
-          </div>
+          </div>  <div className="mb-4">
+      <label htmlFor="logo" className="block text-gray-600">
+        Brand logo
+      </label>
+      <input
+        type="file"
+        id="logo"
+        accept=".png, .jpeg, .jpg" // Specify accepted file types
+        onChange={handleFileChange}
+      />
+      <button className='bg-black text-white p-2 rounded' onClick={handleSave}>Save</button>
+    </div>
+          
           
           <div className="flex justify-end gap-4">
             <button
