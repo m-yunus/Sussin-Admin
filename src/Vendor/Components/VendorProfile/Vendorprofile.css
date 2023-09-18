@@ -1,0 +1,12 @@
+.demo{
+ font-family: 'Nunito', sans-serif;
+}
+@media(max-width:700px){
+    .my-profile{
+        flex-direction: column;
+    }
+     .my-profile{
+        flex-direction: column;
+    }
+    
+}
