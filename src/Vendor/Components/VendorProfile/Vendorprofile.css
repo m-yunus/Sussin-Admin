@@ -5,8 +5,9 @@
     .my-profile{
         flex-direction: column;
     }
-     .my-profile{
-        flex-direction: column;
+     .my-profile img{
+      object-fit:contain;
+      margin-bottom: 1rem;
     }
     
 }
