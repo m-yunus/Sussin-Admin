@@ -29,7 +29,7 @@ const VendorDashprofile = () => {
   return (
     <>
       <div className=" min-h-screen w-full p-6">
-        <h1 className="demo">MY ACCOUNT</h1>
+        <h1 >MY ACCOUNT</h1>
 
         <div className="my-profile w-full h-auto border my-4 p-4 border-gray-300 flex  rounded-md  ">
           <img
