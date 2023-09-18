@@ -35,18 +35,15 @@ const Updateprofile = ({isOpen,onClose}) => {
   
 
   const handleFileChange = (event) => {
-    // Check if the selected file is a PNG or JPEG image
+   
     const file = event.target.files[0];
-    if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+    
       setSelectedFile(file);
-    } else {
-      // Display an error message or reset the input
-      alert('Please select a valid PNG or JPEG image.');
-      event.target.value = null;
-    }
+  
   };
 
   const handleSave = async () => {
+   
     if (selectedFile) {
       const formData = new FormData();
       formData.append('logo', selectedFile);
@@ -58,14 +55,15 @@ const Updateprofile = ({isOpen,onClose}) => {
       try {
         const response = await axios.patch(`${BaseUrl}/api/vendor/update-logo`, formData, { headers });
         console.log('Logo updated successfully', response.data);
-
-        // Clear the selected file after successful update
-        setSelectedFile(null);
+setSelectedFile(null)
+       
       } catch (error) {
         console.error('Error updating logo', error);
+        setSelectedFile(null)
       }
     } else {
       alert('Please select a valid PNG or JPEG image before saving.');
+      
     }
   };
 

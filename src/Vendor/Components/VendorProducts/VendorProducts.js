@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./vendorProduct.css";
 import axios from "axios";
 import { BaseUrl } from "../../../App";
@@ -12,6 +12,7 @@ const VendorProducts = () => {
     categoryId:"",
    slug:""
   })
+  const[category,setcategory]=useState([])
   const navigate = useNavigate();
   // Function to handle image selection
   const { productId } = useParams();
@@ -64,6 +65,21 @@ const VendorProducts = () => {
       console.log("API",error);
     }
   }
+  const fetchcategory=async()=>{
+    const headers = {
+      "x-access-token": sessionStorage.getItem("vendor-token"),
+    };
+    try {
+    const res=  await axios.get(`${BaseUrl}/api/product/get-all-categories`,{headers})
+    console.log(res.data,"categpries");
+    setcategory(res.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(()=>{
+fetchcategory()
+  },[category])
   return (
     <>
       <div className="create-product">
@@ -102,9 +118,12 @@ const VendorProducts = () => {
             <h1>Product Category</h1>
             <span className="flex  my-2 items-center">
               <select className="w-80 h-10" name="categoryId" value={productdata.categoryId} id="" onChange={(e)=>handleInputchange(e)}>
-                <option value="1">Winterweat</option>
-                <option value="2">Swetter</option>
-                <option value="3">Jeans</option>
+                {category.map((items,i)=>(<>
+    <option value={items._id} key={i}>{items?.name}</option>
+   
+    </>
+                ))}
+            
               </select>
             </span>
           </div>
