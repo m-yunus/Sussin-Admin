@@ -70,7 +70,7 @@ const Updateprofile = ({ isOpen, onClose }) => {
   return (
     <>
       <div
-        className={`fixed w-full mx-auto  inset-0 flex items-center  justify-center ${
+        className={`fixed w-4/6 mx-auto  inset-0 flex items-center  justify-center ${
           isOpen ? "pointer-events-auto" : "pointer-events-none hidden"
         }`}
       >
@@ -79,7 +79,7 @@ const Updateprofile = ({ isOpen, onClose }) => {
 
         {/* Modal content */}
         <div className=  " create-user-popup bg-white w-1/2 p-6 rounded-lg shadow-md relative z-10  ">
-          <h2 className="text-lg font-semibold mb-4">Create User</h2>
+          <h2 className="text-lg font-semibold mb-4">Update Details</h2>
           <div className="mb-4">
             <div className=" flex items-center w-full gap-8">
               <div className="w-full">

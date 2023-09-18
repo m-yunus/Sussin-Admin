@@ -86,14 +86,14 @@ console.log(productCurrentdetail);
             + Add Product
           </button>
 
-          <table className="user-table">
+          <table className="user-table h-auto ">
             <thead>
-              <tr className="">
-                <th>SI no</th>
-                <th>Image</th>
-                <th>product name</th>
-                <th>slug</th>
-                <th>Description</th>
+              <tr className="w-full">
+                <th className="">sl no</th>
+                <th className="">Image</th>
+                <th className="user-name">Product name</th>
+                <th className="email">Slug</th>
+                <th className="status">Description</th>
                 <th>Actions</th>
               </tr>
             </thead>
