@@ -112,7 +112,7 @@ const Users = () => {
 
   return (
     <>
-      <div className=" h-full w-full ">
+      <div className=" h-full w-full users">
         <div className="users-top flex items-center justify-between  h-20   px-4  ">
           <form class="search-bar">
             <div class="search-icon">
@@ -137,11 +137,16 @@ const Users = () => {
         <div className="p-5 table-container">
           <table className="user-table  ">
             <thead>
-              <tr className="headings ">
+              <tr className="headings  ">
                 <th className="">
-              <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                  <input
+                    className="custom-checkbox"
+                    type="checkbox"
+                    name=""
+                    id=""
+                  />
                 </th>
-                <th className="user-name">User Name</th>
+                <th className="user-name font-semibold">User Name</th>
                 <th className="email">Email</th>
                 <th className="date">Create Date</th>
                 <th className="status">Account Status</th>
@@ -150,9 +155,6 @@ const Users = () => {
             </thead>
 
             <tbody>
-
-
-              
               {gettedData.map((users) => (
                 <tr>
                   <td>
@@ -216,3 +218,8 @@ const Users = () => {
 };
 
 export default Users;
+
+
+
+// font-family: 'Raleway', sans-serif;
+// font-family: 'Work Sans', sans-serif;

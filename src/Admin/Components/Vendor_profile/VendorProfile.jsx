@@ -26,7 +26,7 @@ VendorTable()
 
   return (
     <>
-      <div className="p-5 table-container">
+      <div className="vendor-profile p-5 table-container">
         <table className="user-table">
           <thead>
             <tr className="headings">

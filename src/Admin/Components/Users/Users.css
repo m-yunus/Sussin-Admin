@@ -1,15 +1,23 @@
 /* Table styling */
+.users{
+font-family: 'Raleway', sans-serif;
+
+}
+
 .user-table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ccc;
    font-size: 14px;
+
+
     
 
   }
   .user-table th{
     background-color: #f3f6f9;
     text-align: left;
+   
   }
   .profile-picture{
     border-radius: 50%;
@@ -19,6 +27,7 @@
   }
   .user-table tr  {
  border: 1px solid #ccc;
+ 
 
   }
   .user-table th  {
@@ -216,4 +225,7 @@ padding: 0 15px;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+.vendor-profile{
+  font-family: 'Raleway', sans-serif;
 }

@@ -61,22 +61,22 @@ const CategoryList = () => {
   }, []);
 
   return (
-    <div>
+    <div className='category-list'>
       <div className="p-8 flex flex-col ">
-        <label htmlFor="category" className="text-lg">
+        <label htmlFor="category" className="text-lg font-semibold">
           Category name
         </label>
         <div className="flex items-center">
           <input
             type="text"
             id="category"
-            className="ctgry-lst-input border w-1/4 my-4  border-blue text-sm p-2 "
+            className="ctgry-lst-input border w-1/4 my-4 font-normal  border-blue text-sm p-2 "
             placeholder="Enter category name"
             onChange={(e) => setNewCategoryName(e.target.value)}
             value={newCategoryName}
           />
           <button
-            className="bg-green-500 p-2 cursor-pointer ms-4 hover:bg-green-800 h-8.5 text-sm w-20 text-white rounded"
+            className="bg-green-500 p-2 cursor-pointer ms-4 hover:bg-green-800 font-bold h-8.5 text-sm w-20 text-white rounded"
             onClick={addCategory}
           >
             Create
@@ -84,11 +84,11 @@ const CategoryList = () => {
         </div>
       </div>
       <div className="px-8">
-        <h2>Categories:</h2>
+        <h2 className='text-lg font-semibold'>Categories:</h2>
         <table className="categories w-1/2 text-base font-semibold my-4">
           {categories.map((category) => (
             <tr className="border border-gray-400 w-100 flex items-center">
-              <td key={category._id} className=" p-2 w-3/4 ">
+              <td key={category._id} className=" p-2 w-3/4  text-sm font-normal">
                 {category.name}
               </td>
               <td className="flex gap-4 items-center ">
