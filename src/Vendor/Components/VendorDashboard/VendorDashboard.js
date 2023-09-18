@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { HiUser } from "react-icons/hi";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from "../../../assets/images/Logo 1.png";
 import VendorSidebar from "../VendorSidebar/VendorSidebar";
 import axios from "axios";
 import { BaseUrl } from "../../../App";
 const VendorDashboard = () => {
   const [DropDownOpen, setDropDown] = useState(false);
-
+const navigate=useNavigate();
   const toggleDropdown = () => {
     setDropDown(!DropDownOpen);
   };
@@ -20,6 +20,7 @@ const VendorDashboard = () => {
         headers,
       });
       console.log("deleted account", res.data);
+      navigate("/")
     } catch (error) {
       console.log(error);
     }

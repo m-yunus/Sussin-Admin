@@ -22,7 +22,7 @@ const [productCurrentdetail,setproductcurrentdetail]=useState(null)
       "x-access-token": sessionStorage.getItem("vendor-token"),
     };
     try {
-      const res = await axios.get(`${BaseUrl}/api/product/get-all`, {
+      const res = await axios.get(`${BaseUrl}/api/product/get-products-of-vendor`, {
         headers,
       });
       setproductData(res.data);
