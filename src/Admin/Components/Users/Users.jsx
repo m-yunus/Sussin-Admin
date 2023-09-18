@@ -5,8 +5,7 @@ import axios from "axios";
 import { BaseUrl } from "../../../App";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
-import Error_Popup from "../Error_Popup/Error_Popup";
-import Success_Popup from "../Success_Popup/Success_Popup";
+
 
 const Users = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -140,12 +139,7 @@ const Users = () => {
             <thead>
               <tr className="headings ">
                 <th className="">
-                  <input
-                    className="custom-checkbox"
-                    type="checkbox"
-                    name=""
-                    id=""
-                  />
+              <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
                 </th>
                 <th className="user-name">User Name</th>
                 <th className="email">Email</th>
@@ -156,6 +150,9 @@ const Users = () => {
             </thead>
 
             <tbody>
+
+
+              
               {gettedData.map((users) => (
                 <tr>
                   <td>
@@ -214,7 +211,6 @@ const Users = () => {
         setFormData={setFormData}
         editedUser={editedUser}
       />
-   
     </>
   );
 };
