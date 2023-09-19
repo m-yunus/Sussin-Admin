@@ -190,6 +190,7 @@ const VariationEditModal = ({
                 </label>
                 <div className="flex mt-1 h-10">
                   <input
+
                     type="number"
                     className="w-20"
                     name="dimensionY"
