@@ -61,7 +61,7 @@ console.log(productCurrentdetail);
   return (
     <>
     <h1 className="px-5 pt-5">Product List</h1>
-      <div className="flex w-full">
+      <div className="flex w-full ">
        
         {/* <div className="m-5 border p-2 border-gray-400 w-[20%] text-sm">
           <p className="pb-2">Filters</p>
@@ -81,7 +81,7 @@ console.log(productCurrentdetail);
           </ul>
 
         </div> */}
-        <div className="p-5 table-container  w-full">
+        <div className="p-5 table-container  w-full pb-24 ">
           <button className="bg-green-500 text-sm text-white w-34 px-4  h-10 rounded-lg mb-4">
             + Add Product
           </button>
@@ -128,7 +128,7 @@ console.log(productCurrentdetail);
                         <RiMoreFill className="text-gray-500" />
                       </button>
                       {openDropdownIndex === i && (
-                        <div className="absolute top-3 right-0 mt-2 w-32 bg-white border border-gray-300 rounded shadow-md z-10">
+                        <div className="absolute top-3 right-0 mt-2 w-32 bg-white border border-gray-300 rounded shadow-md ">
                           <div
                             className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                             onClick={() => {

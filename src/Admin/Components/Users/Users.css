@@ -106,14 +106,14 @@ font-family: 'Raleway', sans-serif;
 .table-container {
   overflow-x: auto;
 }
-@media(max-width:900px){
+@media(max-width:1024px){
 .user-name{
-  min-width: 130px!important;
-  
+  min-width: 170px!important;
+ 
 }
 .date{
-  min-width: 100px!important;
- 
+  min-width: 150px!important;
+  
   
 }
 .status{
@@ -123,13 +123,11 @@ font-family: 'Raleway', sans-serif;
 }
 .email{
   min-width: 150px!important;
-  
-  
 }
 }
 
 .users-top{
- margin: 0 20px;
+margin: 0 20px;
 border: 1px solid #ccc;
 
 }

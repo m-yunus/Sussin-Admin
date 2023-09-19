@@ -134,10 +134,10 @@ const ProductEditModal = ({ isOpen, onClose, productcurrent }) => {
             </div>
           </div>
           <div className="w-full   ">
-            <div className=" justify-center mx-auto   flex flex-wrap gap-4 p-4 items-center">
+            <div className=" justify-center mx-auto  border border-gray-400  flex flex-wrap gap-4 p-4 items-center">
               {images.map((imageUrl, index) => (
                 <div
-                  className="w-24 h-24 border border-gray-400 flex items-center justify-center"
+                  className="w-12 h-12 border border-gray-400 flex items-center justify-center"
                   key={index}
                 >
                   {showimage ? (
@@ -149,7 +149,7 @@ const ProductEditModal = ({ isOpen, onClose, productcurrent }) => {
               ))}
             </div>
             <div>
-              <div className="flex h-8 justify-center b">
+              <div className="flex h-8 justify-center mt-1 ">
                 <input
                   type="file"
                   accept=".jpg, .jpeg, .png"

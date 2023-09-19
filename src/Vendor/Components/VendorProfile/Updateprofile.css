@@ -3,3 +3,8 @@
         width: 100%;
     }
 }
+@media(max-width:425px){
+    .create-user-popup{
+        width: 130%;
+    }
+}
