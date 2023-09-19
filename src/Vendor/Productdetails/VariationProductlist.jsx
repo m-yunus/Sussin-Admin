@@ -60,22 +60,22 @@ const VariationProductlist = () => {
   return (
     <>
       <div className="p-5 ">
-        <div className='pb-20' style={{ overflowX: "auto" }}>
+        <div className="pb-20" style={{ overflowX: "auto" }}>
           <table className="user-table min-w-full ">
             <thead>
               <tr className="w-full font-medium variation-heading">
-                <td className="  w-18 ">Sl no</td>
-                <td className=" w-24">Price</td>
-                <td className=" w-18">Size</td>
-                <td className=" w-18">Color</td>
-                <td className=" w-20">Images</td>
-                <td className=" w-18">Stock</td>
-                <td className=" w-34">Offer price</td>
-                <td className=" w-34">Offer Start date</td>
-                <td className=" w-34">Offer end date</td>
-                <td className=" w-18">Weight</td>
-                <td className=" w-18">Wargin</td>
-                <td className=" w-20">Actions</td>
+                <td className=" variation-sl  ">Sl no</td>
+                <td className="variation-sl ">Price</td>
+                <td className="variation-sl ">Size</td>
+                <td className="variation-sl ">Color</td>
+                <td className="variation-sl ">Images</td>
+                <td className="variation-sl ">Stock</td>
+                <td className="variation-offer ">Offer price</td>
+                <td className="variation-offer ">Offer Start date</td>
+                <td className="variation-offer ">Offer end date</td>
+                <td className="variation-sl ">Weight</td>
+                <td className="variation-sl ">Wargin</td>
+                <td className="variation-sl ">Actions</td>
               </tr>
             </thead>
 

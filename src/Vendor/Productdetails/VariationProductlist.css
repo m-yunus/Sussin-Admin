@@ -8,3 +8,11 @@ font-weight: 600;
   width: 100%; 
   overflow-x: auto;
 }
+.variation-sl{
+  min-width: 70px;
+
+}
+.variation-offer{
+min-width: 120px;
+
+}

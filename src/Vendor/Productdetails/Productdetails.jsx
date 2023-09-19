@@ -5,6 +5,7 @@ import { RiMoreFill } from "react-icons/ri";
 import ProductEditModal from "./ProductEditModal";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const Productdetails = () => {
   const [productData, setproductData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -168,6 +169,7 @@ console.log(productCurrentdetail);
         onClose={toggleModal}
         productcurrent={productCurrentdetail}
       />
+    
     </>
   );
 };

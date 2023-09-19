@@ -159,10 +159,10 @@ function ProductVariations() {
 
   return (
     <>
-      <div className="mt-16">
+      <div className=" p-5">
         <h1>Product Variations</h1>
-        <div className="w-full border border-gray-400 flex">
-          <div className="flex flex-col">
+        <div className="w-full border border-gray-200 flex">
+          <div className="flex flex-col text-sm">
             {Object.keys(variations).map((key, index) => (
               <div
                 key={index}
@@ -174,8 +174,9 @@ function ProductVariations() {
                 {key}
               </div>
             ))}
-            <div className="w-40 h-28 border border-gray-400 flex items-center ps-2">
-              <button onClick={addVariation}>Create new +</button>
+            <div className="w-40 h-12 flex items-center ">
+              <button className="w-full h-full bg-green-600 text-white hover:bg-green-800 text-lg
+              " onClick={addVariation}>Create new +</button>
             </div>
           </div>
           <div className="flex flex-col">
