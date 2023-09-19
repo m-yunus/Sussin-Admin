@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { BaseUrl } from "../../../App";
+import "./Variation.css"
 
 function ProductVariations() {
   const [weightunit, setweightunit] = useState("kg");
@@ -159,14 +160,14 @@ function ProductVariations() {
 
   return (
     <>
-      <div className=" p-5">
+      <div className=" p-5  w-full variation">
         <h1>Product Variations</h1>
-        <div className="w-full border border-gray-200 flex">
-          <div className="flex flex-col text-sm">
+        <div className="w-full border border-gray-400 flex ">
+          <div className="variation-left flex flex-col  w-[170px] text-sm ">
             {Object.keys(variations).map((key, index) => (
               <div
                 key={index}
-                className={`w-40 h-10 border border-gray-400 flex items-center ps-2 ${
+                className={`variation-no w-40 h-10 border border-gray-400 flex items-center ps-2 ${
                   key === selectedVariation ? "bg-gray-200" : ""
                 }`}
                 onClick={() => handleVariationSelect(key)}
@@ -174,22 +175,27 @@ function ProductVariations() {
                 {key}
               </div>
             ))}
-            <div className="w-40 h-12 flex items-center ">
-              <button className="w-full h-full bg-green-600 text-white hover:bg-green-800 text-lg
-              " onClick={addVariation}>Create new +</button>
+            <div className="create-button w-40 h-12 flex items-center ">
+              <button
+                className="w-full h-full bg-green-600 text-white hover:bg-green-800 text-lg
+              "
+                onClick={addVariation}
+              >
+                Create new +
+              </button>
             </div>
           </div>
-          <div className="flex flex-col">
-            <div className="px-4 py-1 product-bottom flex gap-12">
+          <div className="flex flex-col   variation-right ">
+            <div className="px-4 py-1  product-bottom flex ">
               {/* Conditionally render fields based on selected variation */}
               {selectedVariation && (
-                <>
-                  <div className="flex flex-col">
+                <div className="flex gap-2  justify-between w-full text-sm flex-wrap ">
+                  <div className="flex flex-col ">
                     <h1>Product Weight</h1>
                     <div className="flex mt-1 h-10">
                       <input
                         type="number"
-                        className="w-28"
+                        className="w-20"
                         value={variations[selectedVariation].weight}
                         onChange={(e) => handleweightChange(e)}
                       />
@@ -262,13 +268,13 @@ function ProductVariations() {
                       </select>
                     </div>
                   </div>
-                </>
+                </div>
               )}
             </div>
-            <div className="px-4 py-2 product-bottom flex gap-12">
+            <div className="px-4 py-2 product-bottom flex justify-between text-sm flex-wrap ">
               {/* Conditionally render fields based on selected variation */}
               {selectedVariation && (
-                <>
+                <div className="flex justify-between flex-wrap gap-2">
                   <div className="flex flex-col">
                     <h1>Product Price</h1>
                     <div className="flex mt-1 h-10">
@@ -418,12 +424,12 @@ function ProductVariations() {
                       />
                     </div>
                   </div>
-                </>
+                </div>
               )}
             </div>
-            <div className="px-4 py-2">
+            <div className="variation-btm px-4 py-2 ">
               <h1>Variation images</h1>
-              <div className="w-full border border-gray-400 h-20 flex gap-10 items-center">
+              <div className="variation-img w-full border border-gray-400 h-20 flex gap-10 items-center">
                 {images.map((imagesmap, index) => (
                   <div
                     key={index}
@@ -433,7 +439,7 @@ function ProductVariations() {
                   </div>
                 ))}
               </div>
-              <div className="flex h-8">
+              <div className="file-inp-variation flex h-8">
                 <input
                   type="file"
                   accept=".jpg, .jpeg, .png"
@@ -445,14 +451,16 @@ function ProductVariations() {
                 <label
                   htmlFor="imageInput"
                   style={{ cursor: "pointer" }}
-                  className="pointer text-xs flex items-center "
+                  className="pointer text-xs flex items-center justify-center bg-green-600 text-white hover:bg-green-800  "
                 >
                   Upload File
                 </label>
-                <button className="browse-btn">Browse images</button>
+                <button className="ms-2 browse-btn bg-green-600 text-white hover:bg-green-800 ">
+                  Browse images
+                </button>
               </div>
               <button
-                className="border border-gray-400 h-12 w-40 mt-5"
+                className="bg-blue-500 text-white text-sm hover:bg-blue-800 px-4 py-2 rounded-lg  mt-5"
                 onClick={handlesubmitVariation}
               >
                 Save Variation
