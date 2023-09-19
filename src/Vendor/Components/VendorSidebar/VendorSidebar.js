@@ -19,9 +19,9 @@ const VendorSidebar = () => {
     <>
     
     <div
-        className={`  bg-indigo-900  max-h-screen ${
+        className={`  bg-blue-400  max-h-screen ${
           open ? "w-72" : "w-16"
-        } duration-500 text-gray-100 px-4`}
+        } duration-500 text-white px-4`}
       >
         <div className="py-3 flex justify-end">
           <HiMenuAlt3

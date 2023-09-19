@@ -1,85 +1,75 @@
-.variation-top{
-    display: flex;
-   gap: 10px;
-    background-color: aqua!important;
-   
-    
+.variation-top {
+  display: flex;
+  gap: 10px;
+  background-color: aqua !important;
 }
-.variation input[type="text"]{
-width: 70px;
-height: 30px!important;
+.variation input[type="text"] {
+  width: 70px;
+  height: 30px !important;
 }
-.variation input[type="number"]{
-width: 70px;
-height: 30px!important;
+.variation input[type="number"] {
+  width: 70px;
+  height: 30px !important;
 }
-.variation select{
-width: 60px;
-height: 30px!important;
+.variation select {
+  width: 60px;
+  height: 30px !important;
 }
-.variation input[type="date"]{
-width: 100px;
-height: 30px!important;
+.variation input[type="date"] {
+  width: 100px;
+  height: 30px !important;
 }
-.file-inp-variation button{
-    width: 90px;
-    margin-top: 5px;
+.file-inp-variation button {
+  width: 90px;
+  margin-top: 5px;
 }
-.file-inp-variation label{
-    width: 100px;
-    margin-top: 5px;
+.file-inp-variation label {
+  width: 100px;
+  margin-top: 5px;
 }
-
-@media(max-width:425px){
-  .variation-left{
+@media (max-width: 425px) {
+  .variation-left {
     width: 120px;
   }
-  .create-button{
+  .create-button {
     width: 120px;
     height: 40px;
-   
   }
-    .variation-no{
+  .variation-no {
     width: 120px;
     height: 40px;
-   
   }
-  .variation-btm h1{
+  .variation-btm h1 {
     font-size: 18px;
-    
   }
-  .file-inp-variation{
+  .file-inp-variation {
     width: 70%;
   }
-  .variation-img{
+  .variation-img {
     width: 70%;
   }
-  .variation-right{
+  .variation-right {
     width: 200px;
-
   }
-  .file-inp-variation button{
+  .file-inp-variation button {
     width: 50px;
-    font-size: 5px!important;
+    font-size: 5px !important;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.file-inp-variation label{
-      width: 50px;
-    font-size: 5px!important;
+  }
+  .file-inp-variation label {
+    width: 50px;
+    font-size: 5px !important;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+  }
 }
-
-}
-@media(max-width:320px){
- .variation-right{
+@media (max-width: 320px) {
+  .variation-right {
     width: 180px;
-
   }
 }
