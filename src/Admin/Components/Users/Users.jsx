@@ -4,6 +4,8 @@ import "./Users.css";
 import axios from "axios";
 import { BaseUrl } from "../../../App";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { CiSearch } from "react-icons/ci";
+
 
 const Users = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -88,7 +90,7 @@ const Users = () => {
   }, [gettedData]);
   console.log(gettedData, "sdffsd");
 
-    //   delete a  user
+  //   delete a  user
   const handleDelete = async (userid) => {
     console.log(userid);
     const headers = {
@@ -110,47 +112,90 @@ const Users = () => {
 
   return (
     <>
-      <div className="bg-gray-100 h-full w-full ">
-        <div className="w-full h-24 flex p-4">
+      <div className=" h-full w-full users">
+        <div className="users-top flex items-center justify-between  h-20   px-4  ">
+          <form class="search-bar">
+            <div class="search-icon">
+              <CiSearch />
+            </div>
+            <input
+              type="search"
+              id="default-search"
+              class="search-input"
+              placeholder="Search for users..."
+              required
+            />
+          </form>
+
           <button
             onClick={toggleModal}
-            className="bg-blue-500 text-white px-2 text-sm h-8 w-32 text-center py-2 rounded hover:bg-blue-600"
+            className="add-user bg-blue-500 text-white hover:bg-blue-600"
           >
-            Create User
+            Add User
           </button>
         </div>
-        <div className="p-5">
-          <table className="user-table">
+        <div className="p-5 table-container">
+          <table className="user-table  ">
             <thead>
-              <tr className="text-center">
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-
-                <th></th>
+              <tr className="headings  ">
+                <th className="">
+                  <input
+                    className="custom-checkbox"
+                    type="checkbox"
+                    name=""
+                    id=""
+                  />
+                </th>
+                <th className="user-name font-semibold">User Name</th>
+                <th className="email">Email</th>
+                <th className="date">Create Date</th>
+                <th className="status">Account Status</th>
+                <th className="action">Action</th>
               </tr>
             </thead>
 
             <tbody>
               {gettedData.map((users) => (
-                <tr className="text-center  text-sm" key={users._id}>
-                  <td>{users.name}</td>
+                <tr>
+                  <td>
+                    <input
+                      className="custom-checkbox"
+                      type="checkbox"
+                      name=""
+                      id=""
+                    />
+                  </td>
+                  <td className="flex gap-3">
+                    <img
+                      src="https://picsum.photos/200"
+                      alt=""
+                      className="profile-picture"
+                    />
+                    <h1>{users.name}</h1>
+                  </td>
                   <td>{users.email}</td>
-                  <td>{users.userType}</td>
+                  <td>{users.createdAt}</td>
+
+                  <td>
+                    {users.isVeified === true ? (
+                      <div className=" active">Active</div>
+                    ) : (
+                      <div className=" inactive">Inactive</div>
+                    )}
+                  </td>
                   <td className="flex gap-4">
-                    {" "}
                     <span
-                      className="text-blue-500 cursor-pointer"
+                      className="edit-icon cursor-pointer"
                       onClick={() => toggleEditModal(users)}
                     >
                       <AiFillEdit />
-                    </span>{" "}
-                    {""}{" "}
+                    </span>
+
                     <span
                       onClick={() => handleDelete(users._id)}
-                      className="text-red-600 cursor-pointer"
+                      className="delete-icon cursor-pointer"
                     >
-                      <AiFillDelete />{" "}
+                      <AiFillDelete />
                     </span>
                   </td>
                 </tr>
@@ -173,3 +218,8 @@ const Users = () => {
 };
 
 export default Users;
+
+
+
+// font-family: 'Raleway', sans-serif;
+// font-family: 'Work Sans', sans-serif;

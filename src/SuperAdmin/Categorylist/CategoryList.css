@@ -1,0 +1,15 @@
+.category-list{
+    font-family: 'Raleway', sans-serif;
+}
+.ctgry-lst-input{
+    width: 200px;
+}
+
+.categories{
+    width: 400px;
+}
+@media(max-width:460px){
+    .categories{
+    width: 270px;
+}
+}

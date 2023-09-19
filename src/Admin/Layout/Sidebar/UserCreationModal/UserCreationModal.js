@@ -41,52 +41,53 @@ const UserCreationModal = ({ isOpen, onClose ,FormData,editsubmit ,setFormData ,
         <div className="fixed inset-0 bg-black opacity-50"></div>
 
         {/* Modal content */}
-        <div className="bg-white w-1/2 p-6 rounded-lg shadow-md relative z-10">
-          <h2 className="text-lg font-semibold mb-4">Create User</h2>
+        <div className="bg-white w-2/6 p-6 rounded-lg shadow-md relative z-10">
+          <h2 className="text-lg font-semibold mb-4">Add User</h2>
 
           <div className="mb-4">
-            <div className=" flex items-center w-full gap-8">
-              <div className="w-3/4">
-                <label htmlFor="name" className="block text-gray-600">
-                  Name
+            <div className=" flex items-center w-full ">
+              <div className="w-full">
+                <label htmlFor="name" className="block text-sm text-gray-600">
+                  User Name
                 </label>
                 <input
+                  placeholder="Enter Name"
                   type="text"
                   id="name"
                   name="name"
                   value={FormData.name}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
+                  className="w-full text-sm px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
                 />
-              </div>
-              <div className="justify-center w-1/4">
-                <label htmlFor="userType" className="block text-gray-600">
-                  Role
-                </label>
-                <select
-                  name="userType"
-                  id="userType"
-                  value={FormData.userType}
-                  onChange={handleInputChange}
-                  className="w-full py-2 cursor-pointer px-3 border-gray-300 border rounded focus:outline-none focus:border-blue-400"
-                >
-                  <option
-                    value="vendor"
-                    name="vendor"
-                    className="w-full px-3 border-gray-300 cursor-pointer rounded focus:outline-none focus:border-blue-400"
-                  >
-                    Vendor
-                  </option>
-                  <option value="user" name="user" className="cursor-pointer">
-                    User
-                  </option>
-                </select>
               </div>
             </div>
           </div>
+          <div className="justify-center mb-4 w-full">
+            <label htmlFor="userType" className="block text-gray-600 text-sm">
+              Role
+            </label>
+            <select
+              name="userType"
+              id="userType"
+              value={FormData.userType}
+              onChange={handleInputChange}
+              className="w-full text-sm py-2 cursor-pointer px-3 border-gray-300 border rounded focus:outline-none focus:border-blue-400"
+            >
+              <option
+                value="vendor"
+                name="vendor"
+                className="w-full text-sm px-3 border-gray-300 cursor-pointer rounded focus:outline-none focus:border-blue-400"
+              >
+                Vendor
+              </option>
+              <option value="user" name="user" className="cursor-pointer">
+                User
+              </option>
+            </select>
+          </div>
 
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-600">
+            <label htmlFor="email" className="block text-sm text-gray-600">
               Email
             </label>
             <input
@@ -95,11 +96,11 @@ const UserCreationModal = ({ isOpen, onClose ,FormData,editsubmit ,setFormData ,
               name="email"
               value={FormData.email}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
+              className="w-full text-sm px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="password" className="block text-gray-600">
+            <label htmlFor="password" className="block text-sm text-gray-600">
               Password
             </label>
             <input
@@ -108,12 +109,12 @@ const UserCreationModal = ({ isOpen, onClose ,FormData,editsubmit ,setFormData ,
               name="password"
               value={FormData.password}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
+              className="w-full px-3 text-sm py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
             />
           </div>
           <div className="flex justify-end gap-4">
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="t text-red-500 p-2 text-base rounded  hover:bg-red-200"
               onClick={() => {
                 // Handle user creation logic here
 
@@ -124,10 +125,10 @@ const UserCreationModal = ({ isOpen, onClose ,FormData,editsubmit ,setFormData ,
               Close
             </button>
             <button
-              onClick={editedUser ? editsubmit: handleSubmit}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              onClick={editedUser ? editsubmit : handleSubmit}
+              className="bg-green-500 text-white p-2 rounded text-base hover:bg-green-600"
             >
-              {editedUser ? "Update" : "Create"}
+              {editedUser ? "Update" : "Add User"}
             </button>
           </div>
         </div>

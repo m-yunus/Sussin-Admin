@@ -1,0 +1,26 @@
+.success{
+    position: fixed;
+    top: 10%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    z-index: 999; /* Ensure it's displayed on top */
+   background-color: green;
+  
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 80%; /* Adjust as needed */
+    width: auto; /* Adjust as needed */
+    
+    height: 50px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    align-items: center;
+    display: flex;
+    font-family: 'Nunito Sans', sans-serif;
+
+    
+  }
+  .success span{
+    margin: 0 20px;
+  }

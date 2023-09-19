@@ -1,0 +1,18 @@
+.variation-heading td{
+background-color: #f3f6f9;
+font-weight: 600;
+
+}
+
+.fixed-table-container {
+  width: 100%; 
+  overflow-x: auto;
+}
+.variation-sl{
+  min-width: 70px;
+
+}
+.variation-offer{
+min-width: 120px;
+
+}

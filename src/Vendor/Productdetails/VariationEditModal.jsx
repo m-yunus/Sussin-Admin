@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BaseUrl } from "../../App";
 import axios from "axios";
+import "./VariationEditModal.css"
 
 const VariationEditModal = ({
   isOpen,
@@ -135,11 +136,11 @@ const VariationEditModal = ({
         <div className="fixed inset-0 bg-black opacity-50"></div>
 
         {/* Modal content */}
-        <div className="bg-white w-4/5 p-6 rounded-lg shadow-md relative z-10">
+        <div className="h-auto variation-edit-modal bg-white w-4/5 p-6 rounded-lg shadow-md relative z-10">
           <h2 className="text-lg font-semibold mb-4">Update Variation</h2>
 
           <div className="w-full flex flex-wrap">
-            <div className="px-4 py-1  flex flex-wrap w-full gap-12">
+            <div className="px-4 py-1   flex flex-wrap w-full gap-6">
               <div className="flex flex-col">
                 <label htmlFor="weight" className="text-sm font-semibold">
                   Product Weight
@@ -147,14 +148,14 @@ const VariationEditModal = ({
                 <div className="flex mt-1 h-10">
                   <input
                     type="number"
-                    className="w-28 border rounded p-1"
+                    className="w-28 border rounded text-sm p-1"
                     id="weight"
                     name="weight"
                     value={formData?.weight}
                     onChange={handleInputChange}
                   />
                   <select
-                    className="border rounded p-1 ml-2"
+                    className="borde text-sm rounded p-1 ml-2"
                     id="weightUnit"
                     name="weightUnit"
                     value={formData?.weightUnit}
@@ -189,6 +190,7 @@ const VariationEditModal = ({
                 </label>
                 <div className="flex mt-1 h-10">
                   <input
+
                     type="number"
                     className="w-20"
                     name="dimensionY"
@@ -367,10 +369,10 @@ const VariationEditModal = ({
             </div>
           </div>
 
-          <div className="w-full border border-gray-400 h-20 flex gap-10 items-center">
+          <div className="w-3/4 mx-auto border border-gray-400 h-20 flex gap-10 items-center">
             {images?.map((imageUrl, index) => (
               <div
-                className="w-14 h-14 border border-gray-400 flex items-center justify-center"
+                className="w-14 h-14 border border-gray-400 mx-auto flex items-center justify-center"
                 key={index}
               >
                 {showimage ? (
@@ -381,7 +383,7 @@ const VariationEditModal = ({
               </div>
             ))}
           </div>
-          <div className="flex h-8">
+          <div className="flex h-8 ">
             <input
               type="file"
               accept=".jpg, .jpeg, .png"
@@ -393,16 +395,16 @@ const VariationEditModal = ({
             <label
               htmlFor="imageInput"
               style={{ cursor: "pointer" }}
-              className="pointer text-xs flex items-center "
+              className="pointer text-xs mx-auto  bg-green-600 text-white px-2 hover:bg-green-800 mt-1 rounded font-normal flex items-center "
             >
               Upload File
             </label>
-            <button className="browse-btn">Browse images</button>
+            {/* <button className="browse-btn mx-auto bg-green-600 text-white font-normal ">Browse images</button> */}
           </div>
 
           <div className="flex justify-end gap-4 mt-4">
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-blue-600 text-white px-4 py-2 h-10 w-20 rounded text-sm  hover:bg-blue-700"
               onClick={() => {
                 // Close the modal without saving changes
                 onClose();
@@ -411,7 +413,7 @@ const VariationEditModal = ({
               Close
             </button>
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-blue-600 text-white px-4 py-2 h-10 w-20 rounded text-sm  hover:bg-blue-700"
               onClick={handleUpdate}
             >
               Update

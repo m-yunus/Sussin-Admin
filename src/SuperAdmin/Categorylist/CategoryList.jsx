@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BaseUrl } from '../../App';
 import { LuDelete } from 'react-icons/lu';
+import "./CategoryList.css"
+import {BiEditAlt} from "react-icons/bi"
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
@@ -59,36 +61,46 @@ const CategoryList = () => {
   }, []);
 
   return (
-    <div>
-      <div className='p-8 flex flex-col'>
-        <label htmlFor="category" className='text-lg'>Category name</label>
-        <input
-          type="text"
-          id='category'
-          className='border w-1/2 m-4 border-blue text-sm p-2'
-          placeholder='Enter category name'
-          onChange={(e) => setNewCategoryName(e.target.value)}
-          value={newCategoryName}
-        />
-        <button
-          className='bg-green-400 p-2 cursor-pointer hover:bg-green-700 hover:text-white rounded'
-          onClick={addCategory}
-        >
-          Create
-        </button>
+    <div className='category-list'>
+      <div className="p-8 flex flex-col ">
+        <label htmlFor="category" className="text-lg font-semibold">
+          Category name
+        </label>
+        <div className="flex items-center">
+          <input
+            type="text"
+            id="category"
+            className="ctgry-lst-input border w-1/4 my-4 font-normal  border-blue text-sm p-2 "
+            placeholder="Enter category name"
+            onChange={(e) => setNewCategoryName(e.target.value)}
+            value={newCategoryName}
+          />
+          <button
+            className="bg-green-500 p-2 cursor-pointer ms-4 hover:bg-green-800 font-bold h-8.5 text-sm w-20 text-white rounded"
+            onClick={addCategory}
+          >
+            Create
+          </button>
+        </div>
       </div>
-      <div>
-        <h2>Categories:</h2>
-        <ul>
+      <div className="px-8">
+        <h2 className='text-lg font-semibold'>Categories:</h2>
+        <table className="categories w-1/2 text-base font-semibold my-4">
           {categories.map((category) => (
-            <li key={category._id} className='flex gap-4 items-center '>
-              {category.name}
-             
-               <LuDelete onClick={()=>deleteCategory(category?._id)} className='hover:text-red-500 cursor-pointer'/>
-            
-            </li>
+            <tr className="border border-gray-400 w-100 flex items-center">
+              <td key={category._id} className=" p-2 w-3/4  text-sm font-normal">
+                {category.name}
+              </td>
+              <td className="flex gap-4 items-center ">
+                <LuDelete
+                  onClick={() => deleteCategory(category?._id)}
+                  className="hover:text-red-500 cursor-pointer w-4"
+                />
+                <BiEditAlt className="hover:text-red-500 cursor-pointer w-4" />
+              </td>
+            </tr>
           ))}
-        </ul>
+        </table>
       </div>
     </div>
   );

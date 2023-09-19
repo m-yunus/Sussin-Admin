@@ -21,9 +21,9 @@ const Sidebar = () => {
   return (
    <>
     <div
-        className={`bg-indigo-900 min-h-screen ${
+        className={`bg-blue-400 min-h-screen ${
           open ? "w-72" : "w-16"
-        } duration-500 text-gray-100 px-4`}
+        } duration-500 text-white px-4`}
       >
         <div className="py-3 flex justify-end">
           <HiMenuAlt3

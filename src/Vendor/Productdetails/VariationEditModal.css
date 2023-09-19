@@ -1,0 +1,11 @@
+.variation-edit-modal input{
+    font-size: 14px;
+}
+.variation-edit-modal select{
+    font-size: 14px;
+}
+@media(max-width:768px){
+    .variation-edit-modal{
+        width: 100%;
+    }
+}
