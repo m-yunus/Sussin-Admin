@@ -29,7 +29,7 @@ const VendorDashprofile = () => {
   return (
     <>
       <div className=" min-h-screen w-full p-6">
-        <h1 >MY ACCOUNT</h1>
+        <h1>MY ACCOUNT</h1>
 
         <div className="my-profile w-full h-auto border my-4 p-4 border-gray-300 flex  rounded-md  ">
           <img
@@ -37,9 +37,15 @@ const VendorDashprofile = () => {
             src="https://picsum.photos/200/300"
             alt=""
           />
-          <div className="px-4 flex flex-col font-normal text-sm gap-2">
-            <h5>Bussiness name :{gettedData?.vendor?.business_name}</h5>
-            <h5>Brand Description :{gettedData?.vendor?.brand_description}</h5>
+          <div className="px-4 flex w-full font-normal text-sm gap-2">
+            <div className="w-1/4">
+              <h5>Bussiness name :{gettedData?.vendor?.business_name}</h5>
+            </div>
+            <div className="w-1/4">
+              <h5>
+                Brand Description :{gettedData?.vendor?.brand_description}
+              </h5>
+            </div>
           </div>
         </div>
 
