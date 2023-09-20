@@ -15,6 +15,13 @@ const CategoryList = () => {
   const [showerrorpopup,seterrorpopup]=useState(false);
   const [successdata,setsuccessData]=useState("")
   const [errordata,seterrordata]=useState("");
+ const [categorycurrent,setcategorycurrent]=useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+    fetchCategories()
+  };
   // Function to fetch all categories
   const fetchCategories = async () => {
     const headers = {
@@ -41,7 +48,7 @@ const CategoryList = () => {
       // After successful deletion, fetch the updated list of categories
       setShowSuccessPopup(true)
       
-      setsuccessData("added Successfull")
+      setsuccessData("delete Successfull")
        setTimeout(() => {
          setShowSuccessPopup(false); 
         
@@ -66,11 +73,24 @@ const CategoryList = () => {
       const data = { name: newCategoryName };
       await axios.post(`${BaseUrl}/api/product/add-category`, data,{headers});
       // After successful addition, fetch the updated list of categories
+      setShowSuccessPopup(true)
+      
+      setsuccessData("Category added ")
+       setTimeout(() => {
+         setShowSuccessPopup(false); 
+        
+       }, 1000);
       fetchCategories();
+     
       // Clear the input field
       setNewCategoryName('');
     } catch (error) {
       console.error("Error adding category", error);
+      seterrorpopup(true)
+      seterrordata(error.response.data.message)
+      setTimeout(() => {
+        seterrorpopup(false); 
+      }, 2000);
     }
   };
 
@@ -78,7 +98,12 @@ const CategoryList = () => {
     // Fetch categories when the component mounts
     fetchCategories();
   }, []);
+const handleEdit=(category)=>{
+  setIsOpen(false);
+setcategorycurrent(category)
+  toggleModal()
 
+}
   return (
     <>
     <div className='category-list'>
@@ -116,13 +141,15 @@ const CategoryList = () => {
                   onClick={() => deleteCategory(category?._id)}
                   className="hover:text-red-500 cursor-pointer w-4"
                 />
-                <BiEditAlt className="hover:text-red-500 cursor-pointer w-4" />
+                <BiEditAlt className="hover:text-red-500 cursor-pointer w-4" onClick={()=>handleEdit(category)}/>
               </td>
             </tr>
           ))}
         </table>
       </div>
     </div>
+    <CategoryList  isOpen={isModalOpen}
+        onClose={toggleModal} category={categorycurrent} />
     {showSuccessPopup && <Successpopup data={successdata}/>}
       {showerrorpopup && <ErrorPopup data={errordata}/>}
     </>
