@@ -7,6 +7,7 @@ import "./CategoryList.css"
 import {BiEditAlt} from "react-icons/bi"
 import Successpopup from '../../Admin/Components/Success_Popup/Successpopup';
 import ErrorPopup from '../../Admin/Components/Error_Popup/ErrorPopup';
+import CategoryEditModal from './CategoryEditModal';
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
@@ -148,7 +149,7 @@ setcategorycurrent(category)
         </table>
       </div>
     </div>
-    <CategoryList  isOpen={isModalOpen}
+    <CategoryEditModal  isOpen={isModalOpen}
         onClose={toggleModal} category={categorycurrent} />
     {showSuccessPopup && <Successpopup data={successdata}/>}
       {showerrorpopup && <ErrorPopup data={errordata}/>}
