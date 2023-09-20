@@ -1,12 +1,18 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import Successpopup from '../../Admin/Components/Success_Popup/Successpopup';
+import ErrorPopup from '../../Admin/Components/Error_Popup/ErrorPopup';
 
 const SuperAdminLoginform = () => {
     const [login, setlogin] = useState({
         email: "",
         password: "",
       });
+      const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+      const [showerrorpopup,seterrorpopup]=useState(false);
+      const [successdata,setsuccessData]=useState("")
+      const [errordata,seterrordata]=useState("");
       const navigate = useNavigate();
       const handleInput = (event) => {
         event.preventDefault();
@@ -35,10 +41,22 @@ const SuperAdminLoginform = () => {
             console.log("Registration Successful:", response.data);
             const token = response.data.token;
             sessionStorage.setItem("superadmin-token", token);
-            navigate("/superadmin_dashboard");
+            setShowSuccessPopup(true)
+      
+            setsuccessData("Login Successfull")
+             setTimeout(() => {
+               setShowSuccessPopup(false); 
+               navigate("/superadmin_dashboard");
+             }, 1000);
+            
           }
         } catch (error) {
           console.log("login failed", error);
+          seterrorpopup(true)
+          seterrordata(error.response.data.message)
+          setTimeout(() => {
+            seterrorpopup(false); 
+          }, 2000);
         }
       };
     
@@ -92,6 +110,8 @@ const SuperAdminLoginform = () => {
               
             </div>
           </div>
+          {showSuccessPopup && <Successpopup data={successdata}/>}
+      {showerrorpopup && <ErrorPopup data={errordata}/>}
         </>
       );
     };

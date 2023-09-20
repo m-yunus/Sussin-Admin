@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BaseUrl } from "../../App";
 import axios from "axios";
 import "./VariationEditModal.css"
+import Successpopup from "../../Admin/Components/Success_Popup/Successpopup";
+import ErrorPopup from "../../Admin/Components/Error_Popup/ErrorPopup";
 
 const VariationEditModal = ({
   isOpen,
@@ -25,6 +27,10 @@ const VariationEditModal = ({
   });
   const [images, setImages] = useState([]);
   const [showimage, setShowimage] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showerrorpopup,seterrorpopup]=useState(false);
+  const [successdata,setsuccessData]=useState("")
+  const [errordata,seterrordata]=useState("");
 
   // Update form data when selectedvariation changes
   useEffect(() => {
@@ -118,10 +124,22 @@ const VariationEditModal = ({
         { headers }
       );
       console.log("updated successfully", res.data);
-      fetchVariation();
-      onclose();
+      setShowSuccessPopup(true)
+      
+      setsuccessData("updated Successfull")
+       setTimeout(() => {
+         setShowSuccessPopup(false); 
+         fetchVariation();
+         onClose();
+       }, 1000);
+     
     } catch (error) {
       console.log(error);
+      seterrorpopup(true)
+      seterrordata(error.response.data.message)
+      setTimeout(() => {
+        seterrorpopup(false); 
+      }, 2000);
     }
   };
 
@@ -421,6 +439,8 @@ const VariationEditModal = ({
           </div>
         </div>
       </div>
+      {showSuccessPopup && <Successpopup data={successdata}/>}
+      {showerrorpopup && <ErrorPopup data={errordata}/>}
     </>
   );
 };

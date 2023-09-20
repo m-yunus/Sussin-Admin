@@ -5,11 +5,16 @@ import { BaseUrl } from '../../App';
 import { LuDelete } from 'react-icons/lu';
 import "./CategoryList.css"
 import {BiEditAlt} from "react-icons/bi"
+import Successpopup from '../../Admin/Components/Success_Popup/Successpopup';
+import ErrorPopup from '../../Admin/Components/Error_Popup/ErrorPopup';
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
   const [newCategoryName, setNewCategoryName] = useState('');
-
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showerrorpopup,seterrorpopup]=useState(false);
+  const [successdata,setsuccessData]=useState("")
+  const [errordata,seterrordata]=useState("");
   // Function to fetch all categories
   const fetchCategories = async () => {
     const headers = {
@@ -19,8 +24,10 @@ const CategoryList = () => {
       const response = await axios.get(`${BaseUrl}/api/product/get-all-categories`,{headers});
      console.log(response.data);
       setCategories(response.data)
+    
     } catch (error) {
       console.error("Error fetching categories", error);
+      
     }
   };
 
@@ -32,9 +39,21 @@ const CategoryList = () => {
     try {
       await axios.delete(`${BaseUrl}/api/product/delete-category/${categoryId}`,{headers});
       // After successful deletion, fetch the updated list of categories
+      setShowSuccessPopup(true)
+      
+      setsuccessData("added Successfull")
+       setTimeout(() => {
+         setShowSuccessPopup(false); 
+        
+       }, 1000);
       fetchCategories();
     } catch (error) {
       console.error("Error deleting category", error);
+      seterrorpopup(true)
+      seterrordata(error.response.data.message)
+      setTimeout(() => {
+        seterrorpopup(false); 
+      }, 2000);
     }
   };
 
@@ -61,6 +80,7 @@ const CategoryList = () => {
   }, []);
 
   return (
+    <>
     <div className='category-list'>
       <div className="p-8 flex flex-col ">
         <label htmlFor="category" className="text-lg font-semibold">
@@ -103,6 +123,9 @@ const CategoryList = () => {
         </table>
       </div>
     </div>
+    {showSuccessPopup && <Successpopup data={successdata}/>}
+      {showerrorpopup && <ErrorPopup data={errordata}/>}
+    </>
   );
 };
 

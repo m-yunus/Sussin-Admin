@@ -83,9 +83,9 @@ console.log(productCurrentdetail);
 
         </div> */}
         <div className="p-5 table-container  w-full pb-24 ">
-          <button className="bg-green-500 text-sm text-white w-34 px-4  h-10 rounded-lg mb-4">
+        <Link to="/vendorDashboard/add_products"> <button className="bg-green-500 text-sm text-white w-34 px-4  h-10 rounded-lg mb-4">
             + Add Product
-          </button>
+          </button></Link> 
 
           <table className="user-table h-auto ">
             <thead>
