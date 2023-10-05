@@ -46,22 +46,22 @@
     width: 70%;
   }
   .variation-img {
-    width: 70%;
+    width: 90%;
   }
   .variation-right {
     width: 200px;
   }
   .file-inp-variation button {
-    width: 50px;
-    font-size: 5px !important;
+    width: 120px;
+    font-size: 7px !important;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .file-inp-variation label {
-    width: 50px;
-    font-size: 5px !important;
+    width: 110px;
+    font-size: 7px !important;
     height: 20px;
     display: flex;
     align-items: center;

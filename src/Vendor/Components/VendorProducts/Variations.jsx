@@ -185,7 +185,7 @@ function ProductVariations() {
               </button>
             </div>
           </div>
-          <div className="flex flex-col   variation-right ">
+          <div className="flex flex-col   variation-right  ">
             <div className="px-4 py-1  product-bottom flex ">
               {/* Conditionally render fields based on selected variation */}
               {selectedVariation && (
@@ -225,8 +225,7 @@ function ProductVariations() {
                         }}
                       />
                       <select name="" id="">
-                        <option value="">m</option>
-                        <option value="">Cm</option>
+                        <option value="">Meter</option>
                       </select>
                     </div>
                   </div>
@@ -244,9 +243,9 @@ function ProductVariations() {
                           setVariations(updatedVariations);
                         }}
                       />
-                       <select name="" id="">
-                        <option value="">m</option>
-                        <option value="">Cm</option>
+                      <select name="" id="">
+                        <option value="">Meter</option>
+                        <option value="">Centimete</option>
                       </select>
                     </div>
                   </div>
@@ -264,9 +263,8 @@ function ProductVariations() {
                           setVariations(updatedVariations);
                         }}
                       />
-                     <select name="" id="">
-                        <option value="">m</option>
-                        <option value="">Cm</option>
+                      <select name="" id="">
+                        <option value="">Meter</option>
                       </select>
                     </div>
                   </div>
@@ -370,7 +368,7 @@ function ProductVariations() {
                         }}
                       />
                       <select className="w-[65px]" name="" id="">
-                        <option value="">$</option>
+                        <option value="">Nos</option>
                       </select>
                     </div>
                   </div>
@@ -388,9 +386,8 @@ function ProductVariations() {
                           setVariations(updatedVariations);
                         }}
                       />
-                       <select name="" id="">
-                        <option value="">m</option>
-                        <option value="">Cm</option>
+                      <select className="w-[65px]" name="" id="">
+                        <option value="">Nos</option>
                       </select>
                     </div>
                   </div>
@@ -442,8 +439,9 @@ function ProductVariations() {
                   </div>
                 ))}
               </div>
-              <div className="file-inp-variation flex h-8">
+              <div className="file-inp-variation flex h-8  w-full justify-between ">
                 <input
+                
                   type="file"
                   accept=".jpg, .jpeg, .png"
                   multiple
@@ -454,7 +452,7 @@ function ProductVariations() {
                 <label
                   htmlFor="imageInput"
                   style={{ cursor: "pointer" }}
-                  className="pointer text-xs flex items-center justify-center bg-green-600 text-white hover:bg-green-800  "
+                  className="pointer  flex items-center justify-center bg-green-600 text-white hover:bg-green-800  "
                 >
                   Upload File
                 </label>

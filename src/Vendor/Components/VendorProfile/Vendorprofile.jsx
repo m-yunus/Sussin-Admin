@@ -31,22 +31,28 @@ const VendorDashprofile = () => {
       <div className=" min-h-screen w-full p-6">
         <h1>MY ACCOUNT</h1>
 
-        <div className="my-profile w-full h-auto border my-4 p-4 border-gray-300 flex  rounded-md  ">
+        <div className="my-profile  md:flex-row w-full h-auto border my-4 p-2 sm:p-4 border-gray-300 flex  rounded-md  ">
+
           <img
             className="h-72 w-50 rounded-lg"
             src="https://picsum.photos/200/300"
             alt=""
           />
-          <div className="px-4 flex w-full font-normal text-sm gap-2">
-            <div className="w-1/4">
+
+
+          <div className=" sm:px-4 flex w-full font-normal text-sm gap-2 flex-col md:flex-row">
+            <div className="md:w-3/4  w-full ">
               <h5>Bussiness name :{gettedData?.vendor?.business_name}</h5>
             </div>
-            <div className="w-1/4">
+            <div className=" w-full md:w-3/4">
               <h5>
                 Brand Description :{gettedData?.vendor?.brand_description}
               </h5>
             </div>
           </div>
+
+
+
         </div>
 
         <div className="w-full h-24 flex p-4 ">
