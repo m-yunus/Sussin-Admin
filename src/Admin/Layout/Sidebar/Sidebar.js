@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenuAlt3, HiOutlineHome } from "react-icons/hi";
 
@@ -10,6 +10,7 @@ import { CiUser } from "react-icons/ci";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
+  const [sidebarHeight, setSidebarHeight] = useState("100vh");
   const sideMenus = [
     { name: "Dashboard", link: "/dashboard", icon: HiOutlineHome },
     { name: "Categories", link: "/dashboard/categories", icon: BiCategoryAlt },
@@ -18,12 +19,29 @@ const Sidebar = () => {
     { name: "Vendor Profile", link: "/dashboard/vendorprofile", icon: CiUser },
     { name: "Order", link: "/dashboard/order", icon: GiNotebook },
   ];
+
+
+    useEffect(() => {
+      const updateSidebarHeight = () => {
+        const windowHeight = window.innerHeight;
+        setSidebarHeight(`${windowHeight}px`);
+      };
+
+      updateSidebarHeight();
+      window.addEventListener("resize", updateSidebarHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateSidebarHeight);
+      };
+    }, []);
+  
   return (
-   <>
-    <div
-        className={`bg-blue-400 min-h-screen ${
+    <>
+      <div
+        className={`bg-blue-400   ${
           open ? "w-72" : "w-16"
         } duration-500 text-white px-4`}
+        style={{ height: sidebarHeight }}
       >
         <div className="py-3 flex justify-end">
           <HiMenuAlt3
@@ -63,8 +81,8 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
-   </>
-  )
+    </>
+  );
 };
 
 export default Sidebar;

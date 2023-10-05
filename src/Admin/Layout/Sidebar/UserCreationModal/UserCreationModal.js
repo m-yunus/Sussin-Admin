@@ -33,7 +33,7 @@ const UserCreationModal = ({ isOpen, onClose ,FormData,editsubmit ,setFormData ,
   return (
     <>
       <div
-        className={`fixed inset-0 flex items-center justify-center ${
+        className={`fixed  inset-0 flex items-center justify-center ${
           isOpen ? "pointer-events-auto" : "pointer-events-none hidden"
         }`}
       >
@@ -41,7 +41,7 @@ const UserCreationModal = ({ isOpen, onClose ,FormData,editsubmit ,setFormData ,
         <div className="fixed inset-0 bg-black opacity-50"></div>
 
         {/* Modal content */}
-        <div className="bg-white w-2/6 p-6 rounded-lg shadow-md relative z-10">
+        <div className="bg-white w-5/6 sm:w-2/6 p-6 rounded-lg shadow-md relative z-10">
           <h2 className="text-lg font-semibold mb-4">Add User</h2>
 
           <div className="mb-4">
