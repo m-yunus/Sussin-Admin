@@ -220,6 +220,3 @@ const Users = () => {
 export default Users;
 
 
-
-// font-family: 'Raleway', sans-serif;
-// font-family: 'Work Sans', sans-serif;
