@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import { RiMoreFill } from 'react-icons/ri'
 import VariationEditModal from './VariationEditModal'
 import "./VariationProductlist.css"
+import Successpopup from '../../Admin/Components/Success_Popup/Successpopup'
+import ErrorPopup from '../../Admin/Components/Error_Popup/ErrorPopup'
 
 const VariationProductlist = () => {
   const {variationProductid}=useParams();
@@ -12,6 +14,10 @@ const VariationProductlist = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const [selectedvariation,setSelectedVariation]=useState(null)
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showerrorpopup,seterrorpopup]=useState(false);
+  const [successdata,setsuccessData]=useState("")
+  const [errordata,seterrordata]=useState("");
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   
@@ -24,6 +30,7 @@ const VariationProductlist = () => {
       const res = await axios.get(`${BaseUrl}/api/product/get-product-with-variation/${variationProductid}`,{headers})
       console.log("product variations",res.data);
       setgettedVariation(res.data)
+
     } catch (error) {
       console.log("Apierror",error);
     }
@@ -41,11 +48,24 @@ const VariationProductlist = () => {
       const res=await axios.delete(`${BaseUrl}/api/product/delete-variation/${productId}/${_id}`,{headers})
 
       console.log("deleted succesfully",res);
+    
       if(res){
-        fetchVariation()
+        setShowSuccessPopup(true)
+      
+        setsuccessData("Deleted Successfull")
+         setTimeout(() => {
+           setShowSuccessPopup(false); 
+         
+         }, 1000);
+         fetchVariation()
       }
     } catch (error) {
       console.log(error);
+      seterrorpopup(true)
+      seterrordata(error.response.data.message)
+      setTimeout(() => {
+        seterrorpopup(false); 
+      }, 2000);
     }
   }
   const handlemodalopen=(variations)=>{
@@ -74,7 +94,7 @@ const VariationProductlist = () => {
                 <td className="variation-offer ">Offer Start date</td>
                 <td className="variation-offer ">Offer end date</td>
                 <td className="variation-sl ">Weight</td>
-                <td className="variation-sl ">Wargin</td>
+                <td className="variation-sl ">Margin</td>
                 <td className="variation-sl ">Actions</td>
               </tr>
             </thead>
@@ -147,6 +167,8 @@ const VariationProductlist = () => {
         selectedvariation={selectedvariation}
         fetchVariation={fetchVariation}
       />
+        {showSuccessPopup && <Successpopup data={successdata}/>}
+      {showerrorpopup && <ErrorPopup data={errordata}/>}
     </>
   );
 }

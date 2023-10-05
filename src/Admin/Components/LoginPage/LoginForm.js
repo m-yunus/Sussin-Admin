@@ -3,11 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { BaseUrl } from "../../../App";
 import axios from "axios";
 
+import Successpopup from "../Success_Popup/Successpopup";
+import ErrorPopup from "../Error_Popup/ErrorPopup";
+
 const LoginForm = () => {
   const [login, setlogin] = useState({
     email: "",
     password: "",
   });
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showerrorpopup,seterrorpopup]=useState(false);
+  const [successdata,setsuccessData]=useState("")
+  const [errordata,seterrordata]=useState("");
   const navigate = useNavigate();
   const handleInput = (event) => {
     event.preventDefault();
@@ -36,13 +43,24 @@ const LoginForm = () => {
         console.log("Registration Successful:", response.data);
         const token = response.data.token;
         sessionStorage.setItem("admin-token", token);
-        navigate("/dashboard");
+        setShowSuccessPopup(true)
+      
+       setsuccessData("Login Successfull")
+        setTimeout(() => {
+          setShowSuccessPopup(false); 
+          navigate("/dashboard");
+        }, 1000);
       }
     } catch (error) {
+      seterrorpopup(true)
+      seterrordata(error.response.data.message)
+      setTimeout(() => {
+        seterrorpopup(false); 
+      }, 5000);
       console.log("Registration failed", error);
     }
   };
-
+console.log(errordata);
   return (
     <>
       <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
@@ -101,6 +119,8 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
+      {showSuccessPopup && <Successpopup data={successdata}/>}
+      {showerrorpopup && <ErrorPopup data={errordata}/>}
     </>
   );
 };

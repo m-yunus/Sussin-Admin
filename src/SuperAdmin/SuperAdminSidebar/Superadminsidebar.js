@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Superadminsidebar = () => {
   const [open, setOpen] = useState(true);
   const sideMenus = [
-    { name: "Categories", link: "/dashboard/categories", icon: <TiFolder /> }, // Use the TiFolder component directly
+    { name: "Categories", link: "/superadmin_dashboard", icon: <TiFolder /> }, // Use the TiFolder component directly
   ];
 
   return (

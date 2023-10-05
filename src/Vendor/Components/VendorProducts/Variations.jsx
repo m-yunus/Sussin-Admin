@@ -225,7 +225,8 @@ function ProductVariations() {
                         }}
                       />
                       <select name="" id="">
-                        <option value="">Meter</option>
+                        <option value="">m</option>
+                        <option value="">Cm</option>
                       </select>
                     </div>
                   </div>
@@ -243,9 +244,9 @@ function ProductVariations() {
                           setVariations(updatedVariations);
                         }}
                       />
-                      <select name="" id="">
-                        <option value="">Meter</option>
-                        <option value="">Centimete</option>
+                       <select name="" id="">
+                        <option value="">m</option>
+                        <option value="">Cm</option>
                       </select>
                     </div>
                   </div>
@@ -263,8 +264,9 @@ function ProductVariations() {
                           setVariations(updatedVariations);
                         }}
                       />
-                      <select name="" id="">
-                        <option value="">Meter</option>
+                     <select name="" id="">
+                        <option value="">m</option>
+                        <option value="">Cm</option>
                       </select>
                     </div>
                   </div>
@@ -368,7 +370,7 @@ function ProductVariations() {
                         }}
                       />
                       <select className="w-[65px]" name="" id="">
-                        <option value="">Nos</option>
+                        <option value="">$</option>
                       </select>
                     </div>
                   </div>
@@ -386,8 +388,9 @@ function ProductVariations() {
                           setVariations(updatedVariations);
                         }}
                       />
-                      <select className="w-[65px]" name="" id="">
-                        <option value="">Nos</option>
+                       <select name="" id="">
+                        <option value="">m</option>
+                        <option value="">Cm</option>
                       </select>
                     </div>
                   </div>

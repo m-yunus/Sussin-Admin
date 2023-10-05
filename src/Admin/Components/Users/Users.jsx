@@ -5,6 +5,8 @@ import axios from "axios";
 import { BaseUrl } from "../../../App";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
+import Successpopup from "../Success_Popup/Successpopup";
+import ErrorPopup from "../Error_Popup/ErrorPopup";
 
 
 const Users = () => {
@@ -17,7 +19,10 @@ const Users = () => {
     password: "",
     userType: "vendor",
   });
-  //modal handling
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showerrorpopup,seterrorpopup]=useState(false);
+  const [successdata,setsuccessData]=useState("")
+  const [errordata,seterrordata]=useState("");
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -44,6 +49,7 @@ const Users = () => {
         headers,
       });
       setGettedData(response.data);
+      
     } catch (error) {
       console.log("error fetching data", error);
     }
@@ -74,13 +80,26 @@ const Users = () => {
         userType: "vendor",
       }));
       if (response.status === 200) {
+        setShowSuccessPopup(true)
+      
+      setsuccessData("Updated Successfull")
+       setTimeout(() => {
+         setShowSuccessPopup(false); 
+         fetchData();
+         setEditedUser(null);
+         setIsModalOpen(false);
+       }, 2000);
         // Update the user in the state or refetch the updated user list
         // Example: refetchData();
-        fetchData();
-        setEditedUser(null);
-        setIsModalOpen(false);
+       
       }
+      
     } catch (error) {
+      seterrorpopup(true)
+      seterrordata(error.response.data.message)
+      setTimeout(() => {
+        seterrorpopup(false); 
+      }, 2000);
       console.error("Error updating user", error);
     }
   };
@@ -104,8 +123,20 @@ const Users = () => {
         },
         { headers }
       );
+      setShowSuccessPopup(true)
+      
+      setsuccessData("Deleted Successfull")
+       setTimeout(() => {
+         setShowSuccessPopup(false); 
+         
+       }, 2000);
       console.log("user deleted succesfully", response.data);
     } catch (error) {
+      seterrorpopup(true)
+      seterrordata(error.response.data.message)
+      setTimeout(() => {
+        seterrorpopup(false); 
+      },2000);
       console.log("Api error", error);
     }
   };
@@ -213,6 +244,8 @@ const Users = () => {
         setFormData={setFormData}
         editedUser={editedUser}
       />
+       {showSuccessPopup && <Successpopup data={successdata}/>}
+      {showerrorpopup && <ErrorPopup data={errordata}/>}
     </>
   );
 };

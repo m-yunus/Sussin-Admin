@@ -11,7 +11,7 @@ const VendorSidebar = () => {
     const sideMenus = [
       { name: "Profile", link: "/vendorDashboard", icon: AiFillProfile },
     
-      { name: "Products", link: "/vendorDashboard/add_products", icon: TbTruckDelivery },
+   
       {name:"product List", link :"/vendorDashboard/product_details",icon:CiDeliveryTruck}
 
     ];

@@ -2,12 +2,18 @@ import axios from "axios";
 import React, { useState } from "react";
 import { BaseUrl } from "../../../App";
 import { useNavigate } from "react-router-dom";
+import Successpopup from "../../../Admin/Components/Success_Popup/Successpopup";
+import ErrorPopup from "../../../Admin/Components/Error_Popup/ErrorPopup";
 
 const VendorLoginForm = () => {
   const [login, setlogin] = useState({
     email: "",
     password: "",
   });
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showerrorpopup,seterrorpopup]=useState(false);
+  const [successdata,setsuccessData]=useState("")
+  const [errordata,seterrordata]=useState("");
 const navigate=useNavigate();
   const handleInput = (e) => {
     e.preventDefault();
@@ -30,10 +36,22 @@ const navigate=useNavigate();
                 console.log("login Successful:", res.data);
                 const token = res.data.token;
                 sessionStorage.setItem("vendor-token", token);
-                navigate("/vendorDashboard");
+               
+                setShowSuccessPopup(true)
+      
+                setsuccessData("Login Successfull")
+                 setTimeout(() => {
+                   setShowSuccessPopup(false); 
+                   navigate("/vendorDashboard");
+                 }, 1000);
               }
         } catch (error) {
             console.log("API error",error);
+            seterrorpopup(true)
+            seterrordata("Invalid credentials Login failed")
+            setTimeout(() => {
+              seterrorpopup(false); 
+            }, 2000);
         }
         console.log(loginData);
   }
@@ -90,6 +108,8 @@ const navigate=useNavigate();
           </form>
         </div>
       </div>
+      {showSuccessPopup && <Successpopup data={successdata}/>}
+      {showerrorpopup && <ErrorPopup data={errordata}/>}
     </>
   );
 };
