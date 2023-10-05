@@ -160,7 +160,7 @@ const Users = () => {
 
           <button
             onClick={toggleModal}
-            className="add-user bg-blue-500 text-white hover:bg-blue-600"
+            className="add-user bg-blue-500 text-white text-sm hover:bg-blue-600"
           >
             Add User
           </button>

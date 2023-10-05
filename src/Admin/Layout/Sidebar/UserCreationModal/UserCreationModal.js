@@ -62,6 +62,7 @@ const UserCreationModal = ({ isOpen, onClose ,FormData,editsubmit ,setFormData ,
               </div>
             </div>
           </div>
+          
           <div className="justify-center mb-4 w-full">
             <label htmlFor="userType" className="block text-gray-600 text-sm">
               Role
